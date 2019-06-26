@@ -118,6 +118,16 @@ app.get('/products/clothes/men', (req,res)=>{
       });
     });
   });
+  app.get('/products/delete', (req, res) =>{
+    db.serialize(() => {
+      db.all("SELECT  * FROM Products WHERE Category='E'", (err, row) =>{
+        if(err) {
+          res.send({messege:"err.message"})
+        }
+        res.send({data:row})
+      });
+    });
+  });
     
 
  

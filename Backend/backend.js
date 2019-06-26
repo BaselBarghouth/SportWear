@@ -49,6 +49,7 @@ app.get('/products/shoes/men', (req,res)=>{
       });
     });
 
+<<<<<<< HEAD
 app.get('/Products/create', (req, res) =>{
   var dataCategory = req.query.Category;
   var dataType = req.query.Type;
@@ -65,6 +66,33 @@ app.get('/Products/create', (req, res) =>{
     `,[dataCategory, dataType, dataPicture, dataTitle, dataDescription, dataPrice, dataSize ], (err, row) => {
       if (err) {
         res.send({message:err.message})
+=======
+<<<<<<< HEAD
+// Below is the code for the API that Updates the database attributes by requesting the ID and querying the data
+
+app.get('/products/edit/:ID', (req,res)=>{
+  const Category = req.query.Category;
+  const Type = req.query.Type;
+  const Picture = req.query.Picture;
+  const Title = req.query.Title;
+  const Description = req.query.Description;
+  const Price = req.query.Price;
+  const Size = req.query.Size;
+
+  const ID = parseInt(req.params.ID);
+ 
+  db.serialize(() => {
+    db.run(
+      'UPDATE Products SET Category = ?, Type = ?, Picture = ?, Title = ?, Description = ?, Price = ?, Size = ? WHERE ID= ?',[Category,Type,Picture,Title, Description, Price, Size, ID], function(err) {
+      if (err) {
+        res.send({messege:err.message})
+      }
+      res.send({data:this.changes})
+    });
+  });
+  });
+=======
+>>>>>>> 334f7e3d604401320330286b4703b7496a64128c
 
 app.get('/products/clothes/men', (req,res)=>{
   db.serialize(() => {
@@ -136,4 +164,5 @@ app.get('/products/clothes/men', (req,res)=>{
   });
     
 
+>>>>>>> 2b8e59513ecbdf848e1335fc71b2f5b712e3a8d5
  

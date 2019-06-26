@@ -45,4 +45,75 @@ app.get('/products/shoes/men', (req,res)=>{
       });
     });
 
+
+app.get('/products/clothes/men', (req,res)=>{
+  db.serialize(() => {
+    db.all(`SELECT * FROM Products WHERE Type='M' AND Category='C'`, (err, row) => {
+      if (err) {
+        res.send({messege:"err.message"})
+      }
+      res.send({data:row})
+    });
+  });
+  });
+
+
+  app.get('/products/shoes/women', (req,res)=>{
+    db.serialize(() => {
+      db.all(`SELECT * FROM Products WHERE Type='F' AND Category='S'`, (err, row) => {
+        if (err) {
+          res.send({messege:"err.message"})
+        }
+        res.send({data:row})
+      });
+    });
+    });
+
+    app.get('/products/clothes/women', (req,res)=>{
+      db.serialize(() => {
+        db.all(`SELECT * FROM Products WHERE Type='F' AND Category='C'`, (err, row) => {
+          if (err) {
+            res.send({messege:"err.message"})
+          }
+          res.send({data:row})
+        });
+      });
+      });
+
+  app.get('/products/shoes/kids', (req, res) =>{
+    db.serialize(() => {
+      db.all("SELECT  * FROM Products WHERE Type='K' AND Category='S'", (err, row) =>{
+        if(err) {
+          res.send({messege:"err.message"})
+        }
+        res.send({data:row})
+      });
+    });
+  });
+
+
+  app.get('/products/clothes/kids', (req, res) =>{
+    db.serialize(() => {
+      db.all("SELECT  * FROM Products WHERE Type='K' AND Category='C'", (err, row) =>{
+        if(err) {
+          res.send({messege:"err.message"})
+        }
+        res.send({data:row})
+      });
+    });
+  });
+
+
+  app.get('/products/equipment', (req, res) =>{
+    db.serialize(() => {
+      db.all("SELECT  * FROM Products WHERE Category='E'", (err, row) =>{
+        if(err) {
+          res.send({messege:"err.message"})
+        }
+        res.send({data:row})
+      });
+    });
+  });
+    
+
  

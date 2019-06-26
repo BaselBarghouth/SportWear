@@ -26,6 +26,7 @@ db.serialize(() => {
 });
 });
 
+<<<<<<< HEAD
 // Below is the code for the API that Updates the database attributes by requesting the ID and querying the data
 
 app.get('/products/edit/:ID', (req,res)=>{
@@ -49,4 +50,77 @@ app.get('/products/edit/:ID', (req,res)=>{
     });
   });
   });
+=======
+
+app.get('/products/clothes/men', (req,res)=>{
+  db.serialize(() => {
+    db.all(`SELECT * FROM Products WHERE Type='M' AND Category='C'`, (err, row) => {
+      if (err) {
+        res.send({messege:"err.message"})
+      }
+      res.send({data:row})
+    });
+  });
+  });
+
+
+  app.get('/products/shoes/women', (req,res)=>{
+    db.serialize(() => {
+      db.all(`SELECT * FROM Products WHERE Type='F' AND Category='S'`, (err, row) => {
+        if (err) {
+          res.send({messege:"err.message"})
+        }
+        res.send({data:row})
+      });
+    });
+    });
+
+    app.get('/products/clothes/women', (req,res)=>{
+      db.serialize(() => {
+        db.all(`SELECT * FROM Products WHERE Type='F' AND Category='C'`, (err, row) => {
+          if (err) {
+            res.send({messege:"err.message"})
+          }
+          res.send({data:row})
+        });
+      });
+      });
+
+  app.get('/products/shoes/kids', (req, res) =>{
+    db.serialize(() => {
+      db.all("SELECT  * FROM Products WHERE Type='K' AND Category='S'", (err, row) =>{
+        if(err) {
+          res.send({messege:"err.message"})
+        }
+        res.send({data:row})
+      });
+    });
+  });
+
+
+  app.get('/products/clothes/kids', (req, res) =>{
+    db.serialize(() => {
+      db.all("SELECT  * FROM Products WHERE Type='K' AND Category='C'", (err, row) =>{
+        if(err) {
+          res.send({messege:"err.message"})
+        }
+        res.send({data:row})
+      });
+    });
+  });
+
+
+  app.get('/products/equipment', (req, res) =>{
+    db.serialize(() => {
+      db.all("SELECT  * FROM Products WHERE Category='E'", (err, row) =>{
+        if(err) {
+          res.send({messege:"err.message"})
+        }
+        res.send({data:row})
+      });
+    });
+  });
+    
+
+>>>>>>> 2b8e59513ecbdf848e1335fc71b2f5b712e3a8d5
  

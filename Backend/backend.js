@@ -19,12 +19,31 @@ app.get('/products/shoes/men', (req,res)=>{
 db.serialize(() => {
   db.all(`SELECT * FROM Products WHERE Type='M' AND Category='S'`, (err, row) => {
     if (err) {
-      res.send({messege:"err.message"})
+      res.send({messege:err.message})
     }
     res.send({data:row})
   });
 });
 });
+app.get('/products/shoes/men', (req,res)=>{
+  db.serialize(() => {
+    db.all(`SELECT * FROM Products WHERE Type='M' AND Category='S'`, (err, row) => {
+      if (err) {
+        res.send({messege:err.message})
+      }
+      res.send({data:row})
+    });
+  });
+  });
+  app.get("/products/delete/:id",(req, res) => {
+    let id = parseInt(req.params.id);
+      db.all(`DELETE FROM Products WHERE ID= ?`,[id] ,(err, row) => {
+        if (err) {
+          res.send({messege:err.message})
+        }
+        res.send({data:row})
+      });
+    });
 
 <<<<<<< HEAD
 // Below is the code for the API that Updates the database attributes by requesting the ID and querying the data

@@ -19,11 +19,8 @@ app.get('/products/shoes/men', (req,res)=>{
 db.serialize(() => {
   db.all(`SELECT * FROM Products WHERE Type='M' AND Category='S'`, (err, row) => {
     if (err) {
-<<<<<<< HEAD
-      res.send({message:err.message})
-=======
+      
       res.send({messege:err.message})
->>>>>>> 013a391bfd5034a7572f95660b0a423c4ff1a258
     }
     res.send({data:row})
   });
@@ -49,7 +46,6 @@ app.get('/products/shoes/men', (req,res)=>{
       });
     });
 
-<<<<<<< HEAD
 app.get('/Products/create', (req, res) =>{
   var dataCategory = req.query.Category;
   var dataType = req.query.Type;
@@ -66,8 +62,8 @@ app.get('/Products/create', (req, res) =>{
     `,[dataCategory, dataType, dataPicture, dataTitle, dataDescription, dataPrice, dataSize ], (err, row) => {
       if (err) {
         res.send({message:err.message})
-=======
-<<<<<<< HEAD
+      }})})}); 
+    
 // Below is the code for the API that Updates the database attributes by requesting the ID and querying the data
 
 app.get('/products/edit/:ID', (req,res)=>{
@@ -91,8 +87,7 @@ app.get('/products/edit/:ID', (req,res)=>{
     });
   });
   });
-=======
->>>>>>> 334f7e3d604401320330286b4703b7496a64128c
+
 
 app.get('/products/clothes/men', (req,res)=>{
   db.serialize(() => {
@@ -150,8 +145,6 @@ app.get('/products/clothes/men', (req,res)=>{
       });
     });
   });
-
-
   app.get('/products/equipment', (req, res) =>{
     db.serialize(() => {
       db.all("SELECT  * FROM Products WHERE Category='E'", (err, row) =>{
@@ -162,7 +155,5 @@ app.get('/products/clothes/men', (req,res)=>{
       });
     });
   });
-    
 
->>>>>>> 2b8e59513ecbdf848e1335fc71b2f5b712e3a8d5
- 
+

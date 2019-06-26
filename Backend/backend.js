@@ -26,4 +26,27 @@ db.serialize(() => {
 });
 });
 
+// Below is the code for the API that Updates the database attributes by requesting the ID and querying the data
+
+app.get('/products/edit/:ID', (req,res)=>{
+  const Category = req.query.Category;
+  const Type = req.query.Type;
+  const Picture = req.query.Picture;
+  const Title = req.query.Title;
+  const Description = req.query.Description;
+  const Price = req.query.Price;
+  const Size = req.query.Size;
+
+  const ID = parseInt(req.params.ID);
+ 
+  db.serialize(() => {
+    db.run(
+      'UPDATE Products SET Category = ?, Type = ?, Picture = ?, Title = ?, Description = ?, Price = ?, Size = ? WHERE ID= ?',[Category,Type,Picture,Title, Description, Price, Size, ID], function(err) {
+      if (err) {
+        res.send({messege:err.message})
+      }
+      res.send({data:this.changes})
+    });
+  });
+  });
  

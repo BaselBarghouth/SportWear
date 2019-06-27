@@ -22,27 +22,19 @@ db.serialize(() => {
       
       res.send({messege:err.message})
     }
-    res.send({data:row})
+    res.send(row)
   });
 });
 });
-app.get('/products/shoes/men', (req,res)=>{
-  db.serialize(() => {
-    db.all(`SELECT * FROM Products WHERE Type='M' AND Category='S'`, (err, row) => {
-      if (err) {
-        res.send({messege:err.message})
-      }
-      res.send({data:row})
-    });
-  });
-  });
+
+
   app.get("/products/delete/:id",(req, res) => {
     let id = parseInt(req.params.id);
       db.all(`DELETE FROM Products WHERE ID= ?`,[id] ,(err, row) => {
         if (err) {
           res.send({messege:err.message})
         }
-        res.send({data:row})
+        res.send(row)
       });
     });
 
@@ -83,7 +75,7 @@ app.get('/products/edit/:ID', (req,res)=>{
       if (err) {
         res.send({messege:err.message})
       }
-      res.send({data:this.changes})
+      res.send(this.changes)
     });
   });
   });
@@ -95,7 +87,7 @@ app.get('/products/clothes/men', (req,res)=>{
       if (err) {
         res.send({messege:"err.message"})
       }
-      res.send({data:row})
+      res.send(row)
     });
   });
   });
@@ -107,7 +99,7 @@ app.get('/products/clothes/men', (req,res)=>{
         if (err) {
           res.send({messege:"err.message"})
         }
-        res.send({data:row})
+        res.send(row)
       });
     });
     });
@@ -118,7 +110,7 @@ app.get('/products/clothes/men', (req,res)=>{
           if (err) {
             res.send({messege:"err.message"})
           }
-          res.send({data:row})
+          res.send(row)
         });
       });
       });
@@ -129,7 +121,7 @@ app.get('/products/clothes/men', (req,res)=>{
         if(err) {
           res.send({messege:"err.message"})
         }
-        res.send({data:row})
+        res.send(row)
       });
     });
   });
@@ -141,7 +133,7 @@ app.get('/products/clothes/men', (req,res)=>{
         if(err) {
           res.send({messege:"err.message"})
         }
-        res.send({data:row})
+        res.send(row)
       });
     });
   });
@@ -151,7 +143,7 @@ app.get('/products/clothes/men', (req,res)=>{
         if(err) {
           res.send({messege:"err.message"})
         }
-        res.send({data:row})
+        res.send(row)
       });
     });
   });
@@ -161,10 +153,39 @@ app.get('/products/clothes/men', (req,res)=>{
         if(err) {
           res.send({messege:"err.message"})
         }
-        res.send({data:row})
+        res.send(row)
       });
     });
   });
     
+//The Email part
+// require('dotenv').config();
 
+// const nodemailer = require('nodemailer');
+
+// //step 1
+// let transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//         user:process.env.email,
+//         pass:process.env.password
+//         }
+// });
+
+// //step 2
+// let mailOption = {
+//     from:'sportswear96@gmail.com',
+//     to: 'omar@codi.tech ',
+//     subject:'hello',
+//     text:"Hi,I'm checking the nodemailer and I think it works,thank you (:"  
+// }
+
+// //step 3
+
+// transporter.sendMail(mailOption,(err,data)=>{
+//    if(err){
+//        console.log(err.message)
+//    } 
+//    console.log('Email Sent.....')
+// })
 

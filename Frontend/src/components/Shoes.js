@@ -4,14 +4,17 @@ import sport from '../components/active-wear-9.jpeg'
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Header from './Header'
-
+import Nav from 'react-bootstrap/Nav'
 class Shoes extends Component {
     constructor() {
         super();
         this.state = {
             men:[],
             kids:[],
-            women:[]
+            women:[],
+            hidemen:null,
+            hidewomen:null,
+            hidekids:null
         };
       }
 async componentDidMount(){
@@ -40,15 +43,45 @@ async componentDidMount(){
         console.log(err)
     }
 }
-
+showOrHideMen=event=>{
+    this.setState({
+        hidemen:!this.state.hidemen,
+        hidewomen:null,
+        hidekids:null
+    })
+}
+showOrHideWomen=event=>{
+    this.setState({
+        hidemen:null,
+        hidewomen:!this.state.hidewomen,
+        hidekids:null
+    })
+}
+showOrHidekids=event=>{
+    this.setState({
+        hidemen:null,
+        hidewomen:null,
+        hidekids:!this.state.hidekids
+    })
+}
 
     render() {
         return (
             <div>
                 <Header />
-            <div className='Shoes'>
-               
-                {this.state.men.map(m=><div className="Card1"> <Card >
+                <div className="Shoes-type">
+                            <Nav.Item>
+                                <Nav.Link onClick={this.showOrHideMen}>Men</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link onClick={this.showOrHideWomen}>Women</Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link onClick={this.showOrHidekids}>Kids</Nav.Link>
+                            </Nav.Item>
+                </div>
+            <div>
+               {this.state.hidemen?<div className='Shoes Men'>{this.state.men.map(m=><div className="Card1"> <Card >
                     <Card.Img variant="top" src={m.Picture }/>
                     <Card.Body>
                         <Card.Title>
@@ -61,7 +94,36 @@ async componentDidMount(){
                             <ListGroupItem>{'$'+m.Price}</ListGroupItem>
                         </ListGroup>
                     </Card.Body>
-                </Card></div>)}
+                </Card></div>)}</div>:null}
+                {this.state.hidewomen?<div className='Shoes WoMen'>{this.state.women.map(m=><div className="Card1"> <Card >
+                    <Card.Img variant="top" src={m.Picture }/>
+                    <Card.Body>
+                        <Card.Title>
+                        {m.Title}
+                        </Card.Title>
+                        <Card.Text>
+                        {m.Description}
+                        </Card.Text>
+                        <ListGroup className="list-group-flush">
+                            <ListGroupItem>{'$'+m.Price}</ListGroupItem>
+                        </ListGroup>
+                    </Card.Body>
+                </Card></div>)}</div>:null}
+                {this.state.hidekids?<div className='Shoes Kids'> {this.state.kids.map(m=><div className="Card1"> <Card >
+                    <Card.Img variant="top" src={m.Picture }/>
+                    <Card.Body>
+                        <Card.Title>
+                        {m.Title}
+                        </Card.Title>
+                        <Card.Text>
+                        {m.Description}
+                        </Card.Text>
+                        <ListGroup className="list-group-flush">
+                            <ListGroupItem>{'$'+m.Price}</ListGroupItem>
+                        </ListGroup>
+                    </Card.Body>
+                </Card></div>)}</div>:null}
+               
                 
             </div>
             </div>

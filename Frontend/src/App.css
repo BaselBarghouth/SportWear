@@ -36,3 +36,19 @@
     width: 30%;
     padding: 10px 10px 10px 10px ;
   }
+  .homeImage{
+    height: 80px;
+    width: 80px;
+  }
+  .Rest{
+    margin-left: 200px;
+  }
+  .Shoes-type{
+    text-align: center;
+    width: 30%;
+    margin: 20px auto 0 auto
+  }
+  .Shoes-type{
+    display: flex;
+  }
+  

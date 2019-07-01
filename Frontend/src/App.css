@@ -54,3 +54,21 @@
   color: black;
 }
 
+/* below are the two sections of the contact info*/
+.contactInformation {
+  width: 50%;
+  padding: 40px;
+}
+
+.map-location {
+ 
+  width: 50%
+}
+.iframe {
+  padding: 50px;
+}
+/* below is the container of the two sections of the contact info*/
+.ContactInfo-container {
+  display: flex;
+  background: lightgrey;
+}

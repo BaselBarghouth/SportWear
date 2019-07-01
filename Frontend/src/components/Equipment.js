@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card'
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Header from "./Header"
 class Equipment extends Component {
     constructor() {
         super();
@@ -24,7 +25,7 @@ async componentDidMount(){
     render() {
         return (
             <div>
-             
+             <Header />
                 <div className="Equipment">
                {this.state.equipment.map(m=><div className="Card1"> <Card >
                     <Card.Img variant="top" src={m.Picture }/>

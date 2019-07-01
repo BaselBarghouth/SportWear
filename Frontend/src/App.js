@@ -9,6 +9,7 @@ import Login from './components/Login'
 import Clothes from './components/Clothes'
 import Equipment from './components/Equipment'
 import {BrowserRouter as Router ,Switch, Route} from 'react-router-dom';
+import HomePage from './components/HomePage'
 class App extends React.Component{
   constructor(props) {
     super();
@@ -18,18 +19,12 @@ class App extends React.Component{
 render(){
   return (
     <div className="App"> 
-     
     <Router>
-    <Header />
-    <Slider1 />
-   
-      {/* <Route path="/" component={App} /> */}
-      <Route path="/poducts/shoes" component={Shoes} />
-      <Route path="/poducts/clothes" component={Clothes} />
-      <Route path="/poducts/equipment" component={Equipment} />
+      <Route path="/" exact component={HomePage} />
+      <Route path="/products/shoes" component={Shoes} />
+      <Route path="/products/clothes" component={Clothes} />
+      <Route path="/products/equipment" component={Equipment} />
     </Router>
-    <About />
-      <Form />
     </div>
   );
 }

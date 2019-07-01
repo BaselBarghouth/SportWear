@@ -4,6 +4,7 @@ import sport from '../components/active-wear-9.jpeg'
 import ListGroupItem from 'react-bootstrap/ListGroupItem';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Nav from 'react-bootstrap/Nav'
+import Header from "./Header"
 class Clothes extends Component {
     constructor() {
         super();
@@ -30,6 +31,7 @@ async componentDidMount(e){
     render() {
         return (
             <div>
+                <Header />
                 <div className="Clothes-type">
                             <Nav.Item>
                                 <Nav.Link name="men" onClick={this.componentDidMount}>Men</Nav.Link>

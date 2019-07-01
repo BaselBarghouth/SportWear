@@ -1,54 +1,56 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 .App{
-    text-align: center;
-}
-.h{
-    margin: 80px;
+  text-align: center;
 }
 .about-missin-vision{
-    background-color: grey;
-    display: flex;
-    flex-direction: column;
-    text-align: center
-  }
-  
-  .mission-vision{
-    display: flex;
-    flex-direction: row;
-  }
-  .mission{
-    width: 50%;
-  }
-  .vision{
-    width: 50%;
-  }
-  .Shoes{
-    width: 90%;
-    margin: 0 auto 0 auto;
-    display: flex; 
-    flex-wrap: wrap;
-    align-content: stretch;
-    height: 100%;
-  }
-  .Card1{
-    margin: 0 auto 0 auto;
-    width: 30%;
-    padding: 10px 10px 10px 10px ;
-  }
-  .homeImage{
-    height: 80px;
-    width: 80px;
-  }
-  .Rest{
-    margin-left: 200px;
-  }
-  .Shoes-type{
-    text-align: center;
-    width: 30%;
-    margin: 20px auto 0 auto
-  }
-  .Shoes-type{
-    display: flex;
-  }
-  
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  text-align: center
+}
+
+.mission-vision{
+  display: flex;
+  flex-direction: row;
+}
+.mission{
+  width: 50%;
+}
+.vision{
+  width: 50%;
+}
+.Shoes, .Clothes, .Equipment{
+  width: 90%;
+  margin: 0 auto 0 auto;
+  display: flex; 
+  flex-wrap: wrap;
+  align-content: stretch;
+  height: 100%;
+}
+/* we just need to change the width to 45% so it could be responseve */
+.Card1{
+  margin: 0 auto 0 auto;
+  width: 33%; 
+  padding: 10px 10px 10px 10px ;
+}
+.homeImage{
+  height: 80px;
+  width: 80px;
+}
+.Rest{
+  margin-left: 200px;
+}
+/* we just need to change the width to 50% so it could be responseve */
+.Shoes-type, .Clothes-type{
+  display: flex;
+  text-align: center;
+  width: 20%;
+  margin: 20px auto 0 auto
+}
+
+.slick-arrow{
+  display : visible;
+  color: black;
+}
+

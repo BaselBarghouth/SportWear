@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{Component} from 'react';
+import PropTypes from 'prop-types';
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Navbar from 'react-bootstrap/Navbar'
@@ -7,6 +8,7 @@ import Image from 'react-bootstrap/Image'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import sport from '../components/active-wear-9.jpeg'
+import {Link} from 'react-router-dom'
 
 class Header extends React.Component{
   constructor(props) {
@@ -17,17 +19,18 @@ class Header extends React.Component{
 render(){
   return (
     <div className="Header">
+    
       <Navbar bg="light" expand="lg" className="NavBar">
-      <Image src={sport} roundedCircle className='homeImage'/>
+    ` {/* <Link to="/"> <Image src={sport} roundedCircle className='homeImage'/></Link> */}
      <div className="Rest">
                   <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav1">
                 <Nav className="mr-auto">
                   <Nav.Link href="#home">About</Nav.Link>
                       <NavDropdown title="Products" id="basic-nav-dropdown">
-                          <NavDropdown.Item href="#action/3.1">Clothes</NavDropdown.Item>
-                          <NavDropdown.Item href="#action/3.2">Shoes</NavDropdown.Item>
-                          <NavDropdown.Item href="#action/3.3">Equipments</NavDropdown.Item>
+                          <NavDropdown.Item><Link to="/poducts/shoes">Shoes</Link></NavDropdown.Item>
+                          <NavDropdown.Item ><Link to="/poducts/clothes">Clothes</Link></NavDropdown.Item>
+                          <NavDropdown.Item ><Link to="/poducts/equipment">Equipments</Link></NavDropdown.Item>
                       </NavDropdown>
                   <Nav.Link href="#link">Contact Us</Nav.Link>
                   <Nav.Link href="#home">Login</Nav.Link>

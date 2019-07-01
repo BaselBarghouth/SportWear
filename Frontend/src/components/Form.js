@@ -2,48 +2,64 @@ import React,{Component} from 'react';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import FormControl from 'react-bootstrap/FormControl'
+import axios from 'axios';
 class Form1 extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       name:'',
       lastname:'',
       email:'',
-      messege:''
-    }}
-    handleChangeName = (event) => {
-      this.setState({name:event.target.value}, () => {
-        console.log(this.state.value)
+      message:''
+    }
+  this.handleChange=this.handleChange.bind(this);
+  this.handleSubmit = this.handleSubmit.bind(this)
+  }
+    handleChange = (event)=>{
+      this.setState({[event.target.name]:event.target.value})
+    
+    }
+    async handleSubmit (event){
+      event.preventDefault();
+      const {name, lastname, email, message} = this.state
+      await axios.post('/form',{
+        name,
+        lastname,
+        email,
+        message
+      }) 
+   /*    const body = new FormData();
+      body.append('name', name);
+      body.append('lastname', lastname);
+      body.append('email', email);
+      body.append('message', message);
+      try{
+      const form = await fetch('/form',{
+        method: 'POST',
+       body
       });
     }
-    handleChangeLastName = (event) => {
-      this.setState({lastname:event.target.value}, () => {
-        console.log(this.state.value)
-      });
-    }
-    handleChangeEmail = (event) => {
-      this.setState({email:event.target.value}, () => {
-        console.log(this.state.value)
-      });
-    }
-    handleChangeMessege = (event) => {
-      this.setState({messege:event.target.value}, () => {
-        console.log(this.state.value)
-      });
+    catch(err)
+    {
+      console.log(err)
+    } */
+      
     }
   render() {
       return (
-        <div>
-              <Form.Label>First name</Form.Label>
-              <Form.Control placeholder="First name"  value={this.state.name} onChange={this.handleChangeName}/>
-              <Form.Label>Last name</Form.Label>
-              <Form.Control placeholder="Last name"  value={this.state.lastname} onChange={this.handleChangeLastName}/>
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" value={this.state.email} onChange={this.handleChangeEmail} />
-              <Form.Label>Messege</Form.Label>
-              <Form.Control as="textarea" rows="3" value={this.state.messege} onChange={this.handleChangeMessege} />
-              <Button variant="outline-primary">Submit</Button>
+        <div style={{width:'50%'}} >
+        <Form onSubmit={this.handleSubmit}  >
+            
+              <Form.Label name="name" >First name</Form.Label>
+              <Form.Control placeholder="First name" name="name"  onChange={this.handleChange}/>
+              <Form.Label name="lastname" >Last name</Form.Label>
+              <Form.Control placeholder="Last name" name="lastname"  onChange={this.handleChange}/>
+              <Form.Label name="email" >Email address</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" name="email" onChange={this.handleChange} />
+              <Form.Label name="message">Message</Form.Label>
+              <Form.Control as="textarea" rows="3" name="message" onChange={this.handleChange} />
+              <Button variant="outline-primary" onClick={this.handleSubmit} >Submit</Button>
+        </Form>
         </div>
       )
 }

@@ -9,8 +9,7 @@ class Slider1 extends React.Component{
   
   render(){
     return (
-      <div>
-        
+        <div>
        <Slider className='h' speed={100} arrows={true}
                 slidesToShow={1}
                 slidesToScroll={1}

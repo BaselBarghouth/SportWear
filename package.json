@@ -1,0 +1,24 @@
+{
+  "name": "b",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend.js",
+    "server": "nodemon backend.js",
+    "Frontend": "npm run start --prefix Frontend",
+    "Backend": "npm run server --prefix Backend",
+    "dev": "concurrently \"npm run Backend\" \"npm run Frontend\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^4.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemailer": "^6.2.1",
+    "nodemon": "^1.19.1",
+    "sqlite3": "^4.0.9"
+  }
+}

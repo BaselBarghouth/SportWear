@@ -33,7 +33,7 @@ render(){
                           <NavDropdown.Item ><Link to="/products/equipment">Equipments</Link></NavDropdown.Item>
                       </NavDropdown>
                   <Nav.Link href="#link">Contact Us</Nav.Link>
-                  <Nav.Link href="#home">Login</Nav.Link>
+                  <Nav.Link href="#home"><Link to="/login" >Login</Link></Nav.Link>
                 </Nav>
               </Navbar.Collapse>
       </div>

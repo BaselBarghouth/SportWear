@@ -7,7 +7,7 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({extended:true}));
 
 const PORT =  3001; 
 
@@ -18,7 +18,8 @@ const PORT =  3001;
 //     console.log(req.body)
 // })
 app.post('/form',(req,res)=>{
- // console.log(req)
+
+ console.log(req.body)
 const transport = {
     service :"Gmail",
     auth:{
@@ -65,34 +66,45 @@ let db = new sqlite3.Database('./SportWear.sqlite', sqlite3.OPEN_READWRITE, (err
   });
   });
   
+
+  app.post('/products/delete',(req,res)=>{
+   console.log(req.body.ID)
+    db.all(`DELETE FROM Products WHERE ID= ?`,[req.body.ID] ,(err, row) => {
+      if (err) {
+        res.send({messege:err.message})
+      }
+      res.send(row)
+    });
+  })
   
-    app.get("/products/delete/:id",(req, res) => {
-      let id = parseInt(req.params.id);
-        db.all(`DELETE FROM Products WHERE ID= ?`,[id] ,(err, row) => {
-          if (err) {
-            res.send({messege:err.message})
-          }
-          res.send(row)
-        });
-      });
-  
-  app.get('/Products/create', (req, res) =>{
-    var dataCategory = req.query.Category;
-    var dataType = req.query.Type;
-    var dataPicture = req.query.Picture;
-    var dataTitle = req.query.Title;
-    var dataDescription = req.query.Description;
-    var dataPrice = req.query.Price;
-    var dataSize = req.query.Size;
-  
+  app.post('/adminmenu/additem',(req,res)=>{
+    console.log(req.body.d)
     db.serialize(() => {
       db.all(`INSERT INTO Products 
       (Category, Type, Picture, Title, Description, Price, Size)
       VALUES (? , ?, ?, ?, ?, ?, ?)
-      `,[dataCategory, dataType, dataPicture, dataTitle, dataDescription, dataPrice, dataSize ], (err, row) => {
+      `,[req.body.category,req.body.type,req.body.picture,req.body.title,req.body.d,req.body.price,req.body.size], (err, row) => {
         if (err) {
           res.send({message:err.message})
-        }})})}); 
+        }})})
+  })
+  // app.get('/Products/create', (req, res) =>{
+  //   var dataCategory = req.query.Category;
+  //   var dataType = req.query.Type;
+  //   var dataPicture = req.query.Picture;
+  //   var dataTitle = req.query.Title;
+  //   var dataDescription = req.query.Description;
+  //   var dataPrice = req.query.Price;
+  //   var dataSize = req.query.Size;
+  
+  //   db.serialize(() => {
+  //     db.all(`INSERT INTO Products 
+  //     (Category, Type, Picture, Title, Description, Price, Size)
+  //     VALUES (? , ?, ?, ?, ?, ?, ?)
+  //     `,[dataCategory, dataType, dataPicture, dataTitle, dataDescription, dataPrice, dataSize ], (err, row) => {
+  //       if (err) {
+  //         res.send({message:err.message})
+  //       }})})}); 
       
   // Below is the code for the API that Updates the database attributes by requesting the ID and querying the data
   
@@ -123,7 +135,7 @@ let db = new sqlite3.Database('./SportWear.sqlite', sqlite3.OPEN_READWRITE, (err
     db.serialize(() => {
       db.all(`SELECT * FROM Products WHERE Type='M' AND Category='C'`, (err, row) => {
         if (err) {
-          res.send({messege:"err.message"})
+          res.send({messege:err.message})
         }
         res.send(row)
       });
@@ -185,13 +197,4 @@ let db = new sqlite3.Database('./SportWear.sqlite', sqlite3.OPEN_READWRITE, (err
         });
       });
     });
-    app.get('/products/delete', (req, res) =>{
-      db.serialize(() => {
-        db.all("SELECT  * FROM Products WHERE Category='E'", (err, row) =>{
-          if(err) {
-            res.send({messege:"err.message"})
-          }
-          res.send(row)
-        });
-      });
-    });
+   

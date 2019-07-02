@@ -10,6 +10,9 @@ import Clothes from './components/Clothes'
 import Equipment from './components/Equipment'
 import {BrowserRouter as Router ,Switch, Route} from 'react-router-dom';
 import HomePage from './components/HomePage'
+import AdminMenu from './components/AdminMenu'
+import ShoesAdmin from './components/ShoesAdmin'
+import Create from './components/Create'
 class App extends React.Component{
   constructor(props) {
     super();
@@ -19,12 +22,21 @@ class App extends React.Component{
 render(){
   return (
     <div className="App"> 
-    <Router>
+      {/* <Create /> */}
+      <ShoesAdmin />
+    {/* <AdminMenu /> */}
+    {/* <Router>
       <Route path="/" exact component={HomePage} />
       <Route path="/products/shoes" component={Shoes} />
       <Route path="/products/clothes" component={Clothes} />
       <Route path="/products/equipment" component={Equipment} />
-    </Router>
+      <Route path="/login" component={Login} />
+      <Route path="/adminmenu/shoes" component={ShoesAdmin} />
+      <Route path="/adminmenu/clothes" component={ClothesAdmin} />
+      <Route path="/adminmenu/equipment" component={EquipmentAdmin} />
+      <AdminMenu />
+      
+    </Router> */}
     </div>
   );
 }

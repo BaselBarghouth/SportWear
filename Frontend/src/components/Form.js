@@ -1,8 +1,6 @@
 import React,{Component} from 'react';
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import FormControl from 'react-bootstrap/FormControl'
-import axios from 'axios';
+import Button from 'react-bootstrap/Button' 
 class Form1 extends Component {
   constructor(props) {
     super(props);
@@ -15,36 +13,24 @@ class Form1 extends Component {
   this.handleChange=this.handleChange.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this)
   }
-    handleChange = (event)=>{
+handleChange = (event)=>{
       this.setState({[event.target.name]:event.target.value})
     
     }
-    async handleSubmit (event){
+
+async handleSubmit (event){
       event.preventDefault();
       const {name, lastname, email, message} = this.state
-      await axios.post('/form',{
-        name,
-        lastname,
-        email,
-        message
-      }) 
-   /*    const body = new FormData();
-      body.append('name', name);
-      body.append('lastname', lastname);
-      body.append('email', email);
-      body.append('message', message);
+     
       try{
-      const form = await fetch('/form',{
-        method: 'POST',
-       body
-      });
-    }
-    catch(err)
-    {
-      console.log(err)
-    } */
-      
-    }
+        const form = await fetch('/form',
+        {method:'POST',
+      body:JSON.stringify({name, lastname, email, message}),
+    headers:{'Content-Type':'application/json'}
+  })}
+      catch(err){
+    console.log(err)
+  }}
   render() {
       return (
         <div style={{width:'50%'}} >

@@ -19,6 +19,12 @@
     "express": "^4.17.1",
     "nodemailer": "^6.2.1",
     "nodemon": "^1.19.1",
+    "react": "^16.8.6",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
+    "react-dom": "^16.8.6",
+    "react-router": "^5.0.1",
+    "react-router-hash-link": "^1.2.1",
+    "react-router-scroll": "^0.4.4",
     "sqlite3": "^4.0.9"
   }
 }

@@ -6,6 +6,7 @@ const nodemailer = require('nodemailer');
 const app = express();
 
 app.use(cors());
+app.use(express.static('Public'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
@@ -18,7 +19,6 @@ const PORT =  3001;
 //     console.log(req.body)
 // })
 app.post('/form',(req,res)=>{
-
  console.log(req.body)
 const transport = {
     service :"Gmail",
@@ -108,27 +108,29 @@ let db = new sqlite3.Database('./SportWear.sqlite', sqlite3.OPEN_READWRITE, (err
       
   // Below is the code for the API that Updates the database attributes by requesting the ID and querying the data
   
-  app.get('/products/edit/:ID', (req,res)=>{
-    const Category = req.query.Category;
-    const Type = req.query.Type;
-    const Picture = req.query.Picture;
-    const Title = req.query.Title;
-    const Description = req.query.Description;
-    const Price = req.query.Price;
-    const Size = req.query.Size;
+  // app.get('/products/edit/:ID', (req,res)=>{
+  //   const Category = req.query.Category;
+  //   const Type = req.query.Type;
+  //   const Picture = req.query.Picture;
+  //   const Title = req.query.Title;
+  //   const Description = req.query.Description;
+  //   const Price = req.query.Price;
+  //   const Size = req.query.Size;
   
-    const ID = parseInt(req.params.ID);
+  //   const ID = parseInt(req.params.ID);
+  app.post('/products/edit/',(req,res)=>{
+    console.log(req.body)
    
-    db.serialize(() => {
       db.run(
-        'UPDATE Products SET Category = ?, Type = ?, Picture = ?, Title = ?, Description = ?, Price = ?, Size = ? WHERE ID= ?',[Category,Type,Picture,Title, Description, Price, Size, ID], function(err) {
+        'UPDATE Products SET Category = ?, Type = ?, Picture = ?, Title = ?, Description = ?, Price = ?, Size = ? WHERE ID= ?',[req.body.category,req.body.type,req.body.picture,req.body.title, req.body.d, req.body.price, req.body.size, req.body.id], function(err) {
         if (err) {
           res.send({messege:err.message})
         }
         res.send(this.changes)
-      });
-    });
-    });
+       });
+  }) 
+  
+   
   
   
   app.get('/products/clothes/men', (req,res)=>{
@@ -198,3 +200,40 @@ let db = new sqlite3.Database('./SportWear.sqlite', sqlite3.OPEN_READWRITE, (err
       });
     });
    
+    // Below are the APIs for querying the pictures of the least priced product
+
+app.get('/products/clothes/picture', (req,res)=>{
+  db.serialize(() => {
+   const x =  db.all(`SELECT Picture , MIN(Price) AS Price FROM PRODUCTS WHERE Category='C'`, (err, x) => {
+      console.log(x);
+      if (err) {
+        res.send({messege:err.message})
+      }
+      res.send(x)
+    });
+  });
+  });
+
+  app.get('/products/shoes/picture', (req,res)=>{
+    db.serialize(() => {
+     const x =  db.all(`SELECT Picture , MIN(Price) AS Price FROM PRODUCTS WHERE Category='S'`, (err, x) => {
+        console.log(x);
+        if (err) {
+          res.send({messege:err.message})
+        }
+        res.send(x)
+      });
+    });
+    });
+
+    app.get('/products/equipment/picture', (req,res)=>{
+      db.serialize(() => {
+       const x =  db.all(`SELECT Picture , MIN(Price) AS Price FROM PRODUCTS WHERE Category='E'`, (err, x) => {
+          console.log(x);
+          if (err) {
+            res.send({messege:err.message})
+          }
+          res.send(x)
+        });
+      });
+      });

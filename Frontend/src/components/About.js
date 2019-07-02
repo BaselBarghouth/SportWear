@@ -6,8 +6,8 @@ class About extends Component {
     render() {
         return (
             <div className='about-missin-vision'>
-                <div className='about'>
-                    <h1>About</h1>
+            <div id="about">
+            <h1>About</h1>
                     <p>We at the International Sports Institute envision a time when sports will return to its rightful place of honor.
 
 Our Aim is to fight for Sports, Physical Education, & Wellness to assume more integral and respected positions in the educational enterprise.
@@ -17,9 +17,7 @@ For it may well be that sports, physical education, and wellness, when infused i
                 <div className='mission-vision'>
                     <div className='mission'>
                     <h1>Mission</h1>
-                    <p>The International Sports Institute is committed to creating a better future through sports, physical education, and wellness. We are committed to enhancing the quality of life for our society, and to making it available to all.
-
-</p>
+                    <p>The International Sports Institute is committed to creating a better future through sports, physical education, and wellness. We are committed to enhancing the quality of life for our society, and to making it available to all.</p>
                     </div>
                     <div className='vision'>
                     <h1>Vision</h1>

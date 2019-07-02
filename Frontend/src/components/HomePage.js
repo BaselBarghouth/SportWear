@@ -12,7 +12,7 @@ class HomePage extends React.Component{
 render(){
   return (
     <div> 
-    <Header />
+    <Header   />
     <Slider1 />
     <About />
     <ContactUs />

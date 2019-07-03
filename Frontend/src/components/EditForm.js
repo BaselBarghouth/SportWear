@@ -6,14 +6,14 @@ class EditForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id:this.props.data.ID,
-      category: this.props.data.Category,
-      type: this.props.data.Type,
-      picture: this.props.data.Picture,
-      title:this.props.data.Title,
-      d: this.props.data.Description,
-      price: this.props.data.Price,
-      size: this.props.data.Size
+      id:this.props.location.aboutProps,
+      category:this.props.location.aboutProps ,
+      type:this.props.location.aboutProps ,
+      picture:this.props.location.aboutProps ,
+      title:this.props.location.aboutProps,
+      d: this.props.location.aboutProps,
+      price: this.props.location.aboutProps,
+      size: this.props.location.aboutProps
     };
   }
   handleChange = event => {
@@ -35,6 +35,7 @@ class EditForm extends Component {
   };
   
   render() {
+    
     return (
       <div>
         <Form>

@@ -14,7 +14,7 @@ class AdminMenu extends Component {
     render() {
         return (
             <div>
-                {/* <Header /> */}
+                <Header />
             <div>
 
                <Nav defaultActiveKey="/home" as="ul">

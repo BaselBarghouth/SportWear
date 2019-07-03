@@ -7,6 +7,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Nav from 'react-bootstrap/Nav'
 import Header from "./Header"
 import axios from 'axios';
+import AdminMenu from './AdminMenu';
 class ClothesAdmin extends Component {
     constructor(props) {
         super(props);
@@ -47,8 +48,6 @@ this.setState(this.state.clothes.splice(index,1))
     render() {
         return (
             <div>
-            
-
                 <div className="Clothes-type">
                             <Nav.Item>
                                 <Nav.Link name="men" onClick={this.componentDidMount}>Men</Nav.Link>
@@ -62,7 +61,27 @@ this.setState(this.state.clothes.splice(index,1))
                 </div>
             <div className="Clothes">
             {this.state.clothes.map((clothes,index)=><div className="Card1"> <Card >
-                    <Card.Img variant="top" src={clothes.Picture}/><i class="far fa-trash-alt"  onClick={()=>this.deleteItem(clothes.ID,index)}></i>
+                    <Card.Img variant="top" src={clothes.Picture}/><div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    width: "40px",
+                    margin: "auto",
+                    justifyContent: "space-between"
+                  }}
+                >
+                  <div>
+                    <i
+                      class="far fa-trash-alt"
+                      onClick={() => this.deleteItem(clothes.ID, index)}
+                    />
+                  </div>
+                  <div>
+                  <i class="far fa-edit"  ></i>
+
+
+                  </div>
+                </div>
                     <Card.Body>
                         <Card.Title>
                         {clothes.Title}

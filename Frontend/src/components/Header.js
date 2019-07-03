@@ -44,9 +44,9 @@ class Header extends React.Component {
                 <Nav.Link>
                   <HashLink smooth to="/#contact">Contact Us</HashLink>
                 </Nav.Link>
-                <Nav.Link href="#home">
+                {/* <Nav.Link href="#home">
                   <Link to="/login">Login</Link>
-                </Nav.Link>
+                </Nav.Link> */}
               </Nav>
             </Navbar.Collapse>
           </div>

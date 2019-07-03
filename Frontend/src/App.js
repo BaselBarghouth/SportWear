@@ -5,7 +5,7 @@ import Slider1 from './components/Slider'
 import About from './components/About'
 import Form from './components/Form'
 import Shoes from './components/Shoes'
-import Login from './components/Login'
+// import Login from './components/Login'
 import ContactUs from './components/ContactUs'
 import Clothes from './components/Clothes'
 import Equipment from './components/Equipment'
@@ -20,7 +20,9 @@ import EditForm from './components/EditForm'
 class App extends React.Component{
   constructor(props) {
     super();
-   
+   this.state={
+     h:'sddfsdf'
+   }
   }
   
 render(){
@@ -33,13 +35,15 @@ render(){
       <Route path="/products/shoes" component={Shoes} />
       <Route path="/products/clothes" component={Clothes} />
       <Route path="/products/equipment" component={Equipment} />
-      <Route path="/login" component={Login} />
+      {/* <Route path="/login" component={Login} /> */}
+      <Route path="/adminmenu" component={AdminMenu} />
+      <Route path="/adminpage/edit" component={EditForm} />
       <Route path="/adminmenu/shoes" component={ShoesAdmin} />
       <Route path="/adminmenu/clothes" component={ClothesAmin} />
       <Route path="/adminmenu/equipment" component={EquipmentAdmin} />
     </Router>
     
-    
+     
     </div>
   );
 }

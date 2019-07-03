@@ -7,6 +7,8 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Nav from 'react-bootstrap/Nav'
 import Header from "./Header"
 import axios from 'axios';
+import AdminMenu from './AdminMenu';
+
 class EquipmentAdmin extends Component {
     constructor(props) {
         super(props);
@@ -49,7 +51,27 @@ this.setState(this.state.equipment.splice(index,1))
             <div>
             <div className="Equipment">
             {this.state.equipment.map((equipment,index)=><div className="Card1"> <Card >
-                    <Card.Img variant="top" src={equipment.Picture}/><i class="far fa-trash-alt"  onClick={()=>this.deleteItem(equipment.ID,index)}></i>
+                    <Card.Img variant="top" src={equipment.Picture}/><div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    width: "40px",
+                    margin: "auto",
+                    justifyContent: "space-between"
+                  }}
+                >
+                  <div>
+                    <i
+                      class="far fa-trash-alt"
+                      onClick={() => this.deleteItem(equipment.ID, index)}
+                    />
+                  </div>
+                  <div>
+                  <i class="far fa-edit"  ></i>
+
+
+                  </div>
+                </div>
                     <Card.Body>
                         <Card.Title>
                         {equipment.Title}

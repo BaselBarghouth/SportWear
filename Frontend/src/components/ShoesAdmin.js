@@ -9,12 +9,12 @@ import Header from "./Header";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import EditForm from "./EditForm";
+import AdminMenu from './AdminMenu';
 class ShoesAdmin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      shoes: [],
-      edit: null,
+      shoes: []
     };
     this.componentDidMount = this.componentDidMount.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
@@ -45,12 +45,6 @@ class ShoesAdmin extends Component {
     this.setState(this.state.shoes.splice(index, 1));
   };
 
-  selectItemToEdit = (item,event) => {
-      this.setState({
-          edit: item
-      })
-      console.log('shoescom',item)
-  }
 
   render() {
     return (
@@ -94,10 +88,9 @@ class ShoesAdmin extends Component {
                     />
                   </div>
                   <div>
-                    <button onClick={(event) => {
-                        event.preventDefault();
-                        this.selectItemToEdit(shoes)
-                    }}>Edit </button>
+                  <i class="far fa-edit"  ></i>
+
+
                   </div>
                 </div>
                 <Card.Body>
@@ -113,9 +106,7 @@ class ShoesAdmin extends Component {
 
          
         </div>
-        {
-              this.state.edit !== null ? <EditForm data={this.state.edit} />: null
-          }
+    
       </div>
     );
   }

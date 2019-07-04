@@ -34,18 +34,18 @@ async componentDidMount(e){
                 <Header />
                 <div className="Clothes-type">
                             <Nav.Item>
-                                <Nav.Link name="men" onClick={this.componentDidMount}>Men</Nav.Link>
+                                <Nav.Link name="men" onClick={this.componentDidMount} style={{textDecoration:'none'}} >Men</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link name="women" onClick={this.componentDidMount}>Women</Nav.Link>
+                                <Nav.Link name="women" onClick={this.componentDidMount}style={{textDecoration:'none'}}>Women</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link name="kids" onClick={this.componentDidMount}>Kids</Nav.Link>
+                                <Nav.Link name="kids" onClick={this.componentDidMount}style={{textDecoration:'none'}}>Kids</Nav.Link>
                             </Nav.Item>
                 </div>
             <div className="Clothes">
             {this.state.clothes.map(shoes=><div className="Card1"> <Card >
-                    <Card.Img variant="top" src={shoes.Picture}/>
+                    <Card.Img variant="top" src={shoes.Picture}/> 
                     <Card.Body>
                         <Card.Title>
                         {shoes.Title}

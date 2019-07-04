@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import {Link} from 'react-router-dom'
 class EditForm extends Component {
   constructor(props) {
     super(props);
@@ -32,6 +33,7 @@ class EditForm extends Component {
       price,
       size
     });
+    this.setState({})
   };
   
   render() {
@@ -123,9 +125,9 @@ class EditForm extends Component {
           <Button variant="primary" type="Submit" onClick={this.editItem}>
             Edit
           </Button>
-          <Button variant="primary"  >
+          <Link to={this.props.location.state.path} style={{textDecoration:'none',color:'white'}} > <Button variant="primary"  >
             Cancel
-          </Button>
+          </Button></Link>
         </Form>
       </div>
     );

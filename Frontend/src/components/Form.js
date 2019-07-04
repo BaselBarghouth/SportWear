@@ -34,17 +34,19 @@ async handleSubmit (event){
   render() {
       return (
         <div style={{width:'50%'}} >
-        <Form onSubmit={this.handleSubmit}  >
-            
-              <Form.Label name="name" >First name</Form.Label>
+        <h2 style={{color:'white',fontStyle:'blod',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
+        fontWeight: "bold",
+        fontSize: "22pt"}}>Get in touch</h2>
+        <Form onSubmit={this.handleSubmit} style={{paddingLeft:"10px",paddingBottom:'10px'}} >
+              <Form.Label name="name" style={{color:'white'}}>First name</Form.Label>
               <Form.Control placeholder="First name" name="name"  onChange={this.handleChange}/>
-              <Form.Label name="lastname" >Last name</Form.Label>
+              <Form.Label name="lastname" style={{color:'white'}}>Last name</Form.Label>
               <Form.Control placeholder="Last name" name="lastname"  onChange={this.handleChange}/>
-              <Form.Label name="email" >Email address</Form.Label>
+              <Form.Label name="email" style={{color:'white'}}>Email address</Form.Label>
               <Form.Control type="email" placeholder="Enter email" name="email" onChange={this.handleChange} />
-              <Form.Label name="message">Message</Form.Label>
+              <Form.Label name="message" style={{color:'white'}}>Message</Form.Label>
               <Form.Control as="textarea" rows="3" name="message" onChange={this.handleChange} />
-              <Button variant="outline-primary" onClick={this.handleSubmit} >Submit</Button>
+              <br/><Button variant="light" onClick={this.handleSubmit} >Submit</Button>
         </Form>
         </div>
       )

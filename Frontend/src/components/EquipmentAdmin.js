@@ -8,6 +8,7 @@ import Nav from 'react-bootstrap/Nav'
 import Header from "./Header"
 import axios from 'axios';
 import AdminMenu from './AdminMenu';
+import { Link } from "react-router-dom";
 
 class EquipmentAdmin extends Component {
     constructor(props) {
@@ -61,16 +62,26 @@ this.setState(this.state.equipment.splice(index,1))
                   }}
                 >
                   <div>
+                      <Link>
                     <i
                       class="far fa-trash-alt"
                       onClick={() => this.deleteItem(equipment.ID, index)}
                     />
+                    </Link>
                   </div>
                   <div>
+                  <Link to={{
+                      pathname: '/adminpage/edit',
+                      state: {
+                        data: this.state.equipment[index],
+                        path:'/adminmenu/equipment'
+                      }
+                    }}>
                   <i class="far fa-edit"  ></i>
 
-
+                  </Link>
                   </div>
+                  
                 </div>
                     <Card.Body>
                         <Card.Title>

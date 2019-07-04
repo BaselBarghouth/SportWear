@@ -1,15 +1,9 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import Card from "react-bootstrap/Card";
-import sport from "../components/active-wear-9.jpeg";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
 import ListGroup from "react-bootstrap/ListGroup";
 import Nav from "react-bootstrap/Nav";
-import Header from "./Header";
-import axios from "axios";
 import { Link } from "react-router-dom";
-import EditForm from "./EditForm";
-import AdminMenu from './AdminMenu';
 class ShoesAdmin extends Component {
   constructor(props) {
     super(props);
@@ -71,7 +65,7 @@ class ShoesAdmin extends Component {
             <div className="Card1">
               {" "}
               <Card>
-                <Card.Img variant="top" src={shoes.Picture} />
+                <Card.Img variant="top" src={shoes.Picture}  />
                 <div
                   style={{
                     display: "flex",
@@ -82,10 +76,12 @@ class ShoesAdmin extends Component {
                   }}
                 >
                   <div>
+                    <Link>
                     <i
                       class="far fa-trash-alt"
                       onClick={() => this.deleteItem(shoes.ID, index)}
                     />
+                    </Link>
                   </div>
                   <div>
                   <Link to={{

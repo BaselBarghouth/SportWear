@@ -41,6 +41,7 @@ render(){
       <Route path="/adminmenu/shoes" component={ShoesAdmin} />
       <Route path="/adminmenu/clothes" component={ClothesAmin} />
       <Route path="/adminmenu/equipment" component={EquipmentAdmin} />
+      <Route path="/adminmenu/additem" component={Create} />
     </Router>
     
      

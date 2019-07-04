@@ -6,20 +6,20 @@ class EditForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id:this.props.location.aboutProps,
-      category:this.props.location.aboutProps ,
-      type:this.props.location.aboutProps ,
-      picture:this.props.location.aboutProps ,
-      title:this.props.location.aboutProps,
-      d: this.props.location.aboutProps,
-      price: this.props.location.aboutProps,
-      size: this.props.location.aboutProps
+      id:this.props.location.state.data.ID,
+      category:this.props.location.state.data.Category ,
+      type:this.props.location.state.data.Type ,
+      picture:this.props.location.state.data.Picture ,
+      title:this.props.location.state.data.Title,
+      d: this.props.location.state.data.Description,
+      price: this.props.location.state.data.Price,
+      size: this.props.location.state.data.Size
     };
   }
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
-  addItem = async event => {
+  editItem = async event => {
     event.preventDefault();
     const { id,category, type, picture, title, d, price, size } = this.state;
     await axios.post("/products/edit/", {
@@ -120,10 +120,10 @@ class EditForm extends Component {
             />
           </Form.Group>
 
-          <Button variant="primary" type="Submit" onClick={this.addItem}>
+          <Button variant="primary" type="Submit" onClick={this.editItem}>
             Edit
           </Button>
-          <Button variant="primary" type="cancel" >
+          <Button variant="primary"  >
             Cancel
           </Button>
         </Form>

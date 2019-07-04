@@ -4,22 +4,32 @@
   text-align: center;
 }
 .about-missin-vision{
-  background-color: grey;
-  display: flex;
-  flex-direction: column;
-  text-align: center
-}
-
-.mission-vision{
   display: flex;
   flex-direction: row;
+  text-align: center;
+}
+.about{
+  width: 33%;
+
 }
 .mission{
-  width: 50%;
+  width: 33%;
 }
 .vision{
-  width: 50%;
+  width: 33%;
 }
+.about-missin-vision h1{
+  color: #FF4500;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 22pt;
+  }
+  .about-missin-vision p{
+    color: rgb(48, 44, 44);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: normal;
+  font-size: 13pt;
+    }
 .Shoes, .Clothes, .Equipment{
   width: 90%;
   margin: 0 auto 0 auto;
@@ -38,9 +48,7 @@
   height: 80px;
   width: 80px;
 }
-.Rest{
-  margin-left: 200px;
-}
+
 /* we just need to change the width to 50% so it could be responseve */
 .Shoes-type, .Clothes-type{
   display: flex;
@@ -54,21 +62,26 @@
   color: black;
 }
 
-/* below are the two sections of the contact info*/
-.contactInformation {
+/* below are the two sections of the contact info */
+/* .contactInformation {
   width: 50%;
   padding: 40px;
-}
+} */
 
-.map-location {
- 
+/* .map-location {
   width: 50%
-}
-.iframe {
+} */
+/* .iframe {
   padding: 50px;
-}
+} */
 /* below is the container of the two sections of the contact info*/
-.ContactInfo-container {
+/* .ContactInfo-container {
   display: flex;
   background: lightgrey;
-}
+} */
+.Header {
+  background-color:rgb(48, 44, 44);
+  width: 100%;
+
+  }
+ 

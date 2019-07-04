@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import Form from './Form';
 import ContactInfo from './ContactInfo';
 
 class ContactUs extends Component {
@@ -8,9 +7,9 @@ class ContactUs extends Component {
   }
   render() {
       return (
-        <div id="contact">
+        <div id="contact" style={{backgroundColor:'#FF4500'}} >
               <ContactInfo />
-              <Form />
+             
         </div>
       )
 }

@@ -88,9 +88,15 @@ class ShoesAdmin extends Component {
                     />
                   </div>
                   <div>
-                  <i class="far fa-edit"  ></i>
-
-
+                  <Link to={{
+                      pathname: '/adminpage/edit',
+                      state: {
+                        data: this.state.shoes[index]
+                      }
+                    }}>
+                  
+                  <i class="far fa-edit" ></i>
+                  </Link>
                   </div>
                 </div>
                 <Card.Body>
@@ -113,3 +119,4 @@ class ShoesAdmin extends Component {
 }
 
 export default ShoesAdmin;
+

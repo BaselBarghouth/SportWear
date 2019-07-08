@@ -49,7 +49,7 @@ class Shoes extends Component {
                 </div>
             <div className="Shoes">
             {this.state.shoes.map(shoes=><div className="Card1"> <Card >
-                    <Card.Img variant="top" src={`http://localhost:3001/${shoes.Picture} `}style={{border:'1px transparent',borderRadius:'25px'}} />
+                    <Card.Img variant="top" src={`http://localhost:3001/${shoes.Picture} `}style={{border:'1px transparent',borderRadius:'25px' }} />
                     <Card.Body>
                         <Card.Title style={{color:'#FF4500',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
                         fontWeight: "bold",

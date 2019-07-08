@@ -17,7 +17,7 @@ For it may well be that sports, physical education, and wellness, when infused i
     
                     <div className='mission'>
                     <h1><i class="fas fa-bullseye"></i> Mission</h1>
-                    <p  style={{textAlign:'justify',paddingLeft:'20px'}}>The International Sports Institute is committed to creating a better future through sports, physical education, and wellness. We are committed to enhancing the quality of life for our society, and to making it available to all.</p>
+                    <p style={{textAlign:'justify',paddingLeft:'20px'}}>The International Sports Institute is committed to creating a better future through sports, physical education, and wellness. We are committed to enhancing the quality of life for our society, and to making it available to all.</p>
                     </div>
                     <div className='vision'>
                     <h1><i class="far fa-eye"></i> Vision</h1>

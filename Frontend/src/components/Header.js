@@ -22,11 +22,11 @@ class Header extends React.Component {
         <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between'}} >
           <div>
           <Link to="/">
-              <Image src={sport} className="homeImage"  />
+              <Image src={sport} className="homeImage" style={{height:"75%"}}/>
           </Link>
           </div>
-          <div className="Rest" style={{marginLeft:"900px"}} >
-            <Navbar.Toggle aria-controls="basic-navbar-nav"  />
+          <div className="Rest" style={{position:"right"}} >
+            <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav1"  >
               <Nav className="mr-auto">
                 <Nav.Link >

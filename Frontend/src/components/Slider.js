@@ -72,7 +72,7 @@ catch(err){
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={this.state.shoes}
+            src={this.state.clothes}
             alt="Third slide"
             style={{width:'60%',maxHeight:'400px'}}
           />
@@ -81,7 +81,7 @@ catch(err){
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={this.state.shoes}
+            src={this.state.equipment}
             alt="Third slide"
             style={{width:'60%',maxHeight:'400px'}}
 

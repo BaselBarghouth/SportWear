@@ -6,7 +6,7 @@ const nodemailer = require('nodemailer');
 const app = express();
 
 app.use(cors());
-app.use(express.static('Public'))
+app.use(express.static('./Public'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 

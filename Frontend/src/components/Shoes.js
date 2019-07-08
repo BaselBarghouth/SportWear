@@ -12,10 +12,11 @@ class Shoes extends Component {
         this.state = {
             shoes:[]
         };
-        this.componentDidMount = this.componentDidMount.bind(this)
+      
       }
 
-async componentDidMount(e){
+ getShoes= async(e)=>
+{
     try{
         const respons = await fetch(`/products/shoes/${e.target.name}`)
         const shoes = await respons.json();
@@ -25,7 +26,6 @@ async componentDidMount(e){
     catch(err){
         console.log(err)
     }
-  
 }
 
 
@@ -35,26 +35,32 @@ async componentDidMount(e){
               <Header />
                 <div className="Shoes-type">
                             <Nav.Item>
-                                <Nav.Link name="men" onClick={this.componentDidMount}>Men</Nav.Link>
+                                <Nav.Link name="MEN" onClick={this.getShoes} style={{color:'grey',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
+                                fontWeight: "bold", fontSize: "13pt"}}>MEN</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link name="women" onClick={this.componentDidMount}>Women</Nav.Link>
+                                <Nav.Link name="WOMEN" onClick={this.getShoes} style={{color:'grey',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
+                                fontWeight: "bold", fontSize: "13pt"}}>WOMEN</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link name="kids" onClick={this.componentDidMount}>Kids</Nav.Link>
+                                <Nav.Link name="KIDS" onClick={this.getShoes} style={{color:'grey',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
+                                fontWeight: "bold", fontSize: "13pt"}}>KIDS</Nav.Link>
                             </Nav.Item>
                 </div>
             <div className="Shoes">
             {this.state.shoes.map(shoes=><div className="Card1"> <Card >
-                    <Card.Img variant="top" src={shoes.Picture}/>
+                    <Card.Img variant="top" src={`http://localhost:3001/${shoes.Picture} `}style={{border:'1px transparent',borderRadius:'25px'}} />
                     <Card.Body>
-                        <Card.Title>
+                        <Card.Title style={{color:'#FF4500',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
+                        fontWeight: "bold",
+                        fontSize: "20pt"}}>
                         {shoes.Title}
                         </Card.Title>
-                        <Card.Text>
+                        <Card.Text style={{color:'grey',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif", fontSize: "10pt"}}>
                         {shoes.Description}
                         </Card.Text>
-                        <ListGroup className="list-group-flush">
+                        <ListGroup className="list-group-flush" style={{color:'rgb(48, 44, 44)',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
+                        fontWeight: "bold", fontSize: "15pt"}}>
                             <ListGroupItem>{'$'+shoes.Price}</ListGroupItem>
                         </ListGroup>
                     </Card.Body>

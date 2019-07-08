@@ -33,8 +33,9 @@ class ContactInfo extends Component {
                         <MapLocation    />
 
                     </div>
-
-
+                    <div>
+                    <i class="far fa-copyright" style={{textAlign:"center", Size:"2pt", color:"white"}}>2019 Sportswear. All Rights Reserved.</i>
+                    </div>
 
 
                 </div>

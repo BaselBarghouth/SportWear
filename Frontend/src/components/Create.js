@@ -28,10 +28,11 @@ class Create extends Component {
     }
     render() {
         return (
-            <div>
+            <div style={{width:"75%", margin:"auto"}}>
                     <Form>
-                    <h2>Add Item</h2><br></br>
-                    <Form.Group controlId="exampleForm.ControlSelect1" >
+                    <h2 style={{color:'#FF4500',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
+                    fontWeight: "bold", fontSize: "20pt"}}>ADD ITEM</h2><br></br>
+                    <Form.Group controlId="exampleForm.ControlSelect1">
                                         <Form.Label>Category</Form.Label>
                                         <Form.Control as="select" name="category" value = {this.state.category} onChange={this.handleChange}  >
                                             <option></option>

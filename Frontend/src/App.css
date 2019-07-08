@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: row;
   text-align: center;
+  padding: 50px 20px 50px 20px;
 }
 .about{
   width: 33%;
@@ -28,7 +29,7 @@
     color: rgb(48, 44, 44);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: normal;
-  font-size: 13pt;
+  font-size: 10pt;
     }
 .Shoes, .Clothes, .Equipment{
   width: 90%;
@@ -42,11 +43,17 @@
 .Card1{
   margin: 0 auto 0 auto;
   width: 33%; 
-  padding: 10px 10px 10px 10px ;
+  padding: 10px 10px 10px 10px;
 }
 .homeImage{
   height: 80px;
   width: 80px;
+}
+.Card1.shoes.Title{
+  color: #FF4500;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 18pt;
 }
 
 /* we just need to change the width to 50% so it could be responseve */
@@ -85,3 +92,17 @@
 
   }
  
+  .carousel-indicators li{
+    background-color: black;
+  }
+  .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;  }
+  .carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+  }
+.card {
+  border: none;
+}
+.red {
+  color: rgb(48, 44, 44);
+}

@@ -1,12 +1,8 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header'
-import Slider1 from './components/Slider'
 import About from './components/About'
-import Form from './components/Form'
 import Shoes from './components/Shoes'
-// import Login from './components/Login'
-import ContactUs from './components/ContactUs'
+import Login from './components/Login'
 import Clothes from './components/Clothes'
 import Equipment from './components/Equipment'
 import {BrowserRouter as Router ,Switch, Route} from 'react-router-dom';
@@ -42,6 +38,7 @@ render(){
       <Route path="/adminmenu/clothes" component={ClothesAmin} />
       <Route path="/adminmenu/equipment" component={EquipmentAdmin} />
       <Route path="/adminmenu/additem" component={Create} />
+      {/* <Login /> */}
     </Router>
     
      

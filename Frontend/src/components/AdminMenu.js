@@ -28,7 +28,13 @@ class AdminMenu extends Component {
                     </Nav.Item>
                         <NavDropdown.Divider />
                         <Nav.Item as="li">
-                        <Nav.Link eventKey="link-2"><Link to="/adminmenu/additem" style={{textDecoration:'none'}}>Add item</Link></Nav.Link>
+                        <Nav.Link eventKey="link-2"><Link 
+                        to={{
+                            pathname: "/adminmenu/additem",
+                            state: {
+                              path:'/adminmenu'
+                            }
+                          }} style={{textDecoration:'none'}}>Add item</Link></Nav.Link>
                     </Nav.Item>
                 </Nav>
             </div>

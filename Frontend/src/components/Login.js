@@ -23,10 +23,12 @@ class Login extends Component {
       handleSubmit=(event)=>{
           if(this.state.user === 'tarek' && this.state.pass === 'tarek' ){
                     
-                   this.state.p="/adminmenu"
+                   this.setState({p: '/adminpage'}, () => {
+                       console.log(this.state.p)
+                   })
           }
           else{
-                this.state.p="/login"
+                this.setState({p: '/login'})
           }
       }
     render() {
@@ -49,10 +51,10 @@ class Login extends Component {
                                     </Form.Label>
                                     <Form.Control type="password" placeholder="Password" name="pass" onChange={this.handleChange} />
                     </Form.Group>
-                    
-                                    <Button variant="primary" type="submit" onClick={this.handleSubmit} >
-                                        <Link to={this.state.p} >Submit</Link>   
-                                    </Button>
+                    <Link to={this.state.p} >
+                                    <Button variant="primary" onClick={this.handleSubmit} >
+                                        Submit 
+                                    </Button></Link>
                 </Form>
             </div>
         )

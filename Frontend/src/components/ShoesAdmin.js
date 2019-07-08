@@ -87,7 +87,8 @@ class ShoesAdmin extends Component {
                   <Link to={{
                       pathname: '/adminpage/edit',
                       state: {
-                        data: this.state.shoes[index]
+                        data: this.state.shoes[index],
+                        path:'/adminmenu/shoes'
                       }
                     }}>
                   

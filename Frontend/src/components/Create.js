@@ -2,33 +2,58 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import axios from 'axios';
-
+import {Link} from 'react-router-dom'
 class Create extends Component {
     constructor(props) {
         super();
         this.state={
             category:'',
             type:'',
-            picture:'',
             title:'',
             d:'',
             price:'',
-            size:'' 
+            size:'' ,
+            selectedFile:''
                }
        
       }
-      handleChange = (event)=>{
+handleChange = (event)=>{
         this.setState({[event.target.name]:event.target.value})
       
       }
-   addItem= async(event) =>{ 
+onChangeHandler =  (e)=>{
+        this.setState({
+           selectedFile: e.target.files[0]
+          
+       })
+}
+addItem = async(event)=>{
     event.preventDefault();
-    const {category,type,picture,title,d,price,size} = this.state     
-        await axios.post('/adminmenu/additem',{category,type,picture,title,d,price,size})
+    const body = new FormData();
+    body.append('category',this.state.category)
+    body.append('type',this.state.type)
+    body.append('title',this.state.title)
+    body.append('d',this.state.d)
+    body.append('price',this.state.price)
+    body.append('size',this.state.size)
+    body.append('image',this.state.selectedFile)
+   try {await axios.post( '/adminmenu/additem',
+        body 
+     )}
+       catch(err)
+       {
+           console.log(err)
+       }
     }
+       
+componentDidMount(){
+    console.log(this.props)
+}
+
+    
     render() {
         return (
-            <div>
+            <div style={{width:'60%',margin:'0 auto 0 auto'}} >
                     <Form>
                     <h2>Add Item</h2><br></br>
                     <Form.Group controlId="exampleForm.ControlSelect1" >
@@ -50,11 +75,11 @@ class Create extends Component {
                                         </Form.Control>
                                     </Form.Group>
                     <Form.Group controlId="formBasicEmail">
-                                <Form.Label>
-                                    Picture
-                                </Form.Label>
-                                <Form.Control type="picture" placeholder="Upload a Picture" name="picture" onChange={this.handleChange}/>
-                                
+                             
+                              
+                                <input  type="file"onChange={this.onChangeHandler} >
+                                    </input>
+                                    
                     </Form.Group>
 
                     <Form.Group controlId="formBasicPassword">
@@ -81,10 +106,19 @@ class Create extends Component {
                                     </Form.Label>
                                     <Form.Control type="size" placeholder="Enter Size" name="size" onChange={this.handleChange}/>
                     </Form.Group>
-                    
+                    <Link to ={this.props.location.state.path} style={{textDecoration:'none',color:'white',paddingLeft:"10px"}} >
+                                   
                                     <Button variant="primary" type="Submit"onClick={this.addItem} >
                                         Add
                                     </Button>
+                                  
+                                   </Link>
+                                 
+                                    <Link to ={this.props.location.state.path} style={{textDecoration:'none',color:'white',paddingLeft:"10px"}} >
+                                    <Button variant="primary" type="cancel" >
+                                        Cancel
+                                    </Button></Link>
+                                  
                                     
                 </Form>
             </div>

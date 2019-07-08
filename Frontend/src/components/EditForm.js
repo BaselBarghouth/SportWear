@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import {Link} from 'react-router-dom'
+import { createBrowserHistory } from 'history';
 class EditForm extends Component {
   constructor(props) {
     super(props);
@@ -14,34 +15,48 @@ class EditForm extends Component {
       title:this.props.location.state.data.Title,
       d: this.props.location.state.data.Description,
       price: this.props.location.state.data.Price,
-      size: this.props.location.state.data.Size
+      size: this.props.location.state.data.Size,
+      selectedFile:''
     };
   }
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
-  editItem = async event => {
+  editItem = async(event)=>{
     event.preventDefault();
-    const { id,category, type, picture, title, d, price, size } = this.state;
-    await axios.post("/products/edit/", {
-      id,
-      category,
-      type,
-      picture,
-      title,
-      d,
-      price,
-      size
-    });
-    this.setState({})
-  };
-  
+    const body = new FormData();
+    body.append('id',this.state.id)
+    body.append('category',this.state.category)
+    body.append('type',this.state.type)
+    body.append('title',this.state.title)
+    body.append('d',this.state.d)
+    body.append('price',this.state.price)
+    body.append('size',this.state.size)
+    body.append('picture',this.state.picture)
+    body.append('image',this.state.selectedFile)
+   try {await axios.post( 'http://localhost:3001/products/edit/',
+        body 
+     )}
+       catch(err)
+       {
+           console.log(err)
+       }
+       window.open(this.props.location.state.path, "_self");
+  }
+  onChangeHandler =  (e)=>{
+    this.setState({
+      selectedFile: e.target.files[0],
+      picture: e.target.files[0].name
+      
+      
+   })
+  }
   render() {
     
     return (
-      <div>
+      <div style={{width:'60%',margin:'0 auto 0 auto'}} >
         <Form>
-          <h2>Add Item</h2>
+          <h2>Edit Item</h2>
           <br />
           <Form.Group controlId="exampleForm.ControlSelect1">
             <Form.Label>Category</Form.Label>
@@ -80,6 +95,8 @@ class EditForm extends Component {
               value={this.state.picture}
               onChange={this.handleChange}
             />
+            <input  type="file"onChange={this.onChangeHandler} >
+                                    </input>
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
@@ -121,10 +138,14 @@ class EditForm extends Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-
-          <Button variant="primary" type="Submit" onClick={this.editItem}>
-            Edit
+       
+          <Button variant="primary"  onClick={this.editItem}>
+          {/* <WrappedLink to={this.props.location.state.path} style={{textDecoration:'none',color:'white'}} >  */}
+      Update
+          {/* </WrappedLink> */}
           </Button>
+          
+        
           <Link to={this.props.location.state.path} style={{textDecoration:'none',color:'white'}} > <Button variant="primary"  >
             Cancel
           </Button></Link>

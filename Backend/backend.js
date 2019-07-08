@@ -3,8 +3,20 @@ const cors = require('cors');
 const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
-const app = express();
+const multer = require('multer');
+const jwt = require('express-jwt');
+const jwksRsa = require('jwks-rsa');
 
+const app = express();
+const storge = multer.diskStorage({
+  destination: function(req,file,cb){
+    cb(null,'Public/')
+  },
+  filename:function(req,file,cb){
+    cb(null,Date.now()+'-'+file.originalname)
+  }
+});
+const upload = multer({storage:storge})
 app.use(cors());
 app.use(express.static('Public'))
 app.use(bodyParser.json());
@@ -15,9 +27,7 @@ const PORT =  3001;
  app.listen(PORT, ()=>{
      console.log(`server listen on port ${PORT}`)
  } )
-// app.post('/form',(req,res)=>{
-//     console.log(req.body)
-// })
+
 app.post('/form',(req,res)=>{
  console.log(req.body)
 const transport = {
@@ -43,10 +53,11 @@ const transport = {
      `
  }
  transporter.sendMail(option , (err,info)=>{
-     err ? console.log(err) : console.log("Email has sent....")
- })
-})
-
+console.log("Email has sent....")
+ })})
+  
+   
+  
 let db = new sqlite3.Database('./SportWear.sqlite', sqlite3.OPEN_READWRITE, (err) => {
     if (err) {
       console.error(err.message);
@@ -77,69 +88,48 @@ let db = new sqlite3.Database('./SportWear.sqlite', sqlite3.OPEN_READWRITE, (err
     });
   })
   
-  app.post('/adminmenu/additem',(req,res)=>{
-    console.log(req.body.d)
+  app.post('/adminmenu/additem',upload.single('image'),(req,res)=>{
+    console.log(req.file, req.body.price)
+    console.log("hello")
     db.serialize(() => {
       db.all(`INSERT INTO Products 
       (Category, Type, Picture, Title, Description, Price, Size)
       VALUES (? , ?, ?, ?, ?, ?, ?)
-      `,[req.body.category,req.body.type,req.body.picture,req.body.title,req.body.d,req.body.price,req.body.size], (err, row) => {
+      `,[req.body.category,req.body.type,req.file.filename,req.body.title,req.body.d,req.body.price,req.body.size], (err, row) => {
         if (err) {
           res.send({message:err.message})
-        }})})
-  })
-  // app.get('/Products/create', (req, res) =>{
-  //   var dataCategory = req.query.Category;
-  //   var dataType = req.query.Type;
-  //   var dataPicture = req.query.Picture;
-  //   var dataTitle = req.query.Title;
-  //   var dataDescription = req.query.Description;
-  //   var dataPrice = req.query.Price;
-  //   var dataSize = req.query.Size;
-  
-  //   db.serialize(() => {
-  //     db.all(`INSERT INTO Products 
-  //     (Category, Type, Picture, Title, Description, Price, Size)
-  //     VALUES (? , ?, ?, ?, ?, ?, ?)
-  //     `,[dataCategory, dataType, dataPicture, dataTitle, dataDescription, dataPrice, dataSize ], (err, row) => {
-  //       if (err) {
-  //         res.send({message:err.message})
-  //       }})})}); 
-      
-  // Below is the code for the API that Updates the database attributes by requesting the ID and querying the data
-  
-  // app.get('/products/edit/:ID', (req,res)=>{
-  //   const Category = req.query.Category;
-  //   const Type = req.query.Type;
-  //   const Picture = req.query.Picture;
-  //   const Title = req.query.Title;
-  //   const Description = req.query.Description;
-  //   const Price = req.query.Price;
-  //   const Size = req.query.Size;
-  
-  //   const ID = parseInt(req.params.ID);
-  app.post('/products/edit/',(req,res)=>{
-    console.log(req.body)
-   
-      db.run(
-        'UPDATE Products SET Category = ?, Type = ?, Picture = ?, Title = ?, Description = ?, Price = ?, Size = ? WHERE ID= ?',[req.body.category,req.body.type,req.body.picture,req.body.title, req.body.d, req.body.price, req.body.size, req.body.id], function(err) {
-        if (err) {
-          res.send({messege:err.message})
         }
-        res.send(this.changes)
-       });
-  }) 
+      else{
+        console.log(req.body)
+      }})})
+  })
   
-   
+  app.post('/products/edit/',upload.single('image'),(req,res)=>{
+    console.log(req.body)
+    let pic
+    if(req.file)
+    pic = req.file.filename 
+    else pic=req.body.picture;
+   console.log(pic)
+  
+      db.run(
+        'UPDATE Products SET Category = ?, Type = ?, Picture = ?, Title = ?, Description = ?, Price = ?, Size = ? WHERE ID= ?',[req.body.category,req.body.type,pic,req.body.title, req.body.d, req.body.price, req.body.size, req.body.id], function(err) {
+        if (err) {
+          res.json({messege:err.message})
+        }
+        res.json(this.changes)
+       });
+  });
+
   
   
   app.get('/products/clothes/men', (req,res)=>{
     db.serialize(() => {
       db.all(`SELECT * FROM Products WHERE Type='M' AND Category='C'`, (err, row) => {
         if (err) {
-          res.send({messege:err.message})
+          res.json({messege:err.message})
         }
-        res.send(row)
+        res.json(row)
       });
     });
     });
@@ -237,3 +227,16 @@ app.get('/products/clothes/picture', (req,res)=>{
         });
       });
       });
+// app.post('/login',checkJwt,(req,res)=>{
+//   const checkJwt = jwt({
+//     secret: jwksRsa.expressJwtSecret({
+//     cache: true,
+//     rateLimit: true,
+//     jwksRequestsPerMinute: 5,
+//     jwksUri: `https://dev-d4wbmrpi.eu.auth0.com/.well-known/jwks.json`
+//   }),
+//   audience: 'sIW6F1GsmKhYxrnr9ZIOKmZ9s1Q9ywmV',
+//   issuer: `https://dev-d4wbmrpi.eu.auth0.com/`,
+//   algorithms: ['RS256']
+//   })
+// })

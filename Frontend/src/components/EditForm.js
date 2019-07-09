@@ -54,7 +54,7 @@ class EditForm extends Component {
   render() {
     
     return (
-      <div style={{width:'60%',margin:'0 auto 0 auto'}} >
+      <div className="EditForm" >
         <Form>
           <h2>Edit Item</h2>
           <br />
@@ -146,7 +146,7 @@ class EditForm extends Component {
           </Button>
           
         
-          <Link to={this.props.location.state.path} style={{textDecoration:'none',color:'white'}} > <Button variant="primary"  >
+          <Link className="FormLink" to={this.props.location.state.path} > <Button variant="primary"  >
             Cancel
           </Button></Link>
         </Form>

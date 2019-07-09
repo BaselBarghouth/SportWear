@@ -28,17 +28,15 @@ async componentDidMount(){
              <Header />
                 <div className="Equipment">
                {this.state.equipment.map(m=><div className="Card1"> <Card >
-                    <Card.Img variant="top" src={`http://localhost:3001/${m.Picture}` } style={{border:'1px transparent',borderRadius:'25px'}} />
+                    <Card.Img variant="top" src={`http://localhost:3001/${m.Picture}` } />
                     <Card.Body>
-                        <Card.Title style={{color:'#FF4500',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
-                        fontWeight: "bold", fontSize: "20pt"}}>
+                        <Card.Title>
                         {m.Title}
                         </Card.Title>
-                        <Card.Text style={{color:'grey',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif", fontSize: "10pt"}}>
+                        <Card.Text>
                         {m.Description}
                         </Card.Text>
-                        <ListGroup className="list-group-flush" style={{color:'rgb(48, 44, 44)',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
-                        fontWeight: "bold", fontSize: "15pt"}}>
+                        <ListGroup className="list-group-flush">
                             <ListGroupItem>{'$'+m.Price}</ListGroupItem>
                         </ListGroup>
                     </Card.Body>

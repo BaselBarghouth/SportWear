@@ -45,20 +45,17 @@ class ShoesAdmin extends Component {
       <div>
         <div className="Shoes-type">
           <Nav.Item>
-            <Nav.Link name="men" onClick={this.componentDidMount} style={{color:'grey',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
-            fontWeight: "bold", fontSize: "13pt"}}>
+            <Nav.Link name="men" onClick={this.componentDidMount}>
               MEN
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link name="women" onClick={this.componentDidMount} style={{color:'grey',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
-            fontWeight: "bold", fontSize: "13pt"}}>
+            <Nav.Link name="women" onClick={this.componentDidMount}>
               WOMEN
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link name="kids" onClick={this.componentDidMount} style={{color:'grey',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
-            fontWeight: "bold", fontSize: "13pt"}}>
+            <Nav.Link name="kids" onClick={this.componentDidMount}>
               KIDS
             </Nav.Link>
           </Nav.Item>
@@ -69,15 +66,7 @@ class ShoesAdmin extends Component {
               {" "}
               <Card>
                 <Card.Img variant="top" src={`http://localhost:3001/${shoes.Picture}`}  />
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    width: "40px",
-                    margin: "auto",
-                    justifyContent: "space-between"
-                  }}
-                >
+                <div className="Zoubala">
                   <div>
                     <Link>
                     <i
@@ -100,13 +89,11 @@ class ShoesAdmin extends Component {
                   </div>
                 </div>
                 <Card.Body>
-                  <Card.Title style={{color:'#FF4500',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
-                  fontWeight: "bold", fontSize: "20pt"}}>{shoes.Title}</Card.Title>
-                  <Card.Text style={{color:'grey',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif", fontSize: "10pt"}}>
+                  <Card.Title>{shoes.Title}</Card.Title>
+                  <Card.Text>
                   {shoes.Description}</Card.Text>
                   <ListGroup className="list-group-flush">
-                    <ListGroupItem style={{color:'rgb(48, 44, 44)',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
-                    fontWeight: "bold", fontSize: "15pt"}}>{"$" + shoes.Price}</ListGroupItem>
+                    <ListGroupItem>{"$" + shoes.Price}</ListGroupItem>
                   </ListGroup>
                 </Card.Body>
               </Card>

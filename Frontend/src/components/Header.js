@@ -19,32 +19,32 @@ class Header extends React.Component {
       <div className="Header">
         <Navbar expand="lg" className="NavBar navbar-dark bg-dark" 
         >
-        <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between'}} >
+        <div classname="Menu" >
           <div>
           <Link to="/">
-              <Image src={sport} className="homeImage" style={{height:"75%"}}/>
+              <Image src={sport} className="homeImage"/>
           </Link>
           </div>
-          <div className="Rest" style={{position:"right"}} >
+          <div className="Rest">
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav1"  >
               <Nav className="mr-auto">
-                <Nav.Link >
-                  <HashLink smooth to="/#about" style={{color:'lightgrey'}} >About</HashLink>
+                <Nav.Link>
+                  <HashLink className="about" smooth to="/#about" >About</HashLink>
                 </Nav.Link>
                  <NavDropdown title="Products" id="basic-nav-dropdown">
                   <NavDropdown.Item>
-                    <Link to="/products/shoes" style={{color:'black'}} >Shoes</Link>
+                    <Link className="shoes" to="/products/shoes" >Shoes</Link>
                   </NavDropdown.Item>
                   <NavDropdown.Item>
-                    <Link to="/products/clothes" style={{color:'black'}} >Clothes</Link>
+                    <Link className="clothes" to="/products/clothes">Clothes</Link>
                   </NavDropdown.Item>
                   <NavDropdown.Item>
-                    <Link to="/products/equipment" style={{color:'black'}}>Equipments</Link>
+                    <Link className="equipment" to="/products/equipment">Equipments</Link>
                   </NavDropdown.Item>
                 </NavDropdown>
                 <Nav.Link>
-                  <HashLink smooth to="/#contact" style={{color:'lightgrey'}}>Contact Us</HashLink>
+                  <HashLink className="contactus" smooth to="/#contact">Contact Us</HashLink>
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>

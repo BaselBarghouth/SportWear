@@ -3,15 +3,47 @@
 .App{
   text-align: center;
 }
+
+/* Main Page */
+
+/* HEADER */
+.Header {
+  background-color:rgb(48, 44, 44);
+  width: 100%;
+  }
+
+.Menu {
+  position: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.about {
+  text-decoration: none;
+  color:lightgrey;
+  }
+  .shoes {
+    color:black;
+  }
+  .clothes {
+    color:black;
+  }
+  .equipment {
+    color:black;
+  }
+  .contactus{
+  color: lightgrey;
+  }
+
+  /* ABOUT */
 .about-missin-vision{
   display: flex;
   flex-direction: row;
   text-align: center;
   padding: 50px 20px 50px 20px;
 }
-.about{
+.aboutus{
   width: 33%;
-
 }
 .mission{
   width: 33%;
@@ -30,7 +62,78 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: normal;
   font-size: 10pt;
+  text-align: justify;
+  padding-left: 20px;
     }
+
+/* CONTACTUS */
+#contact{
+  background-color: #FF4500;
+}
+.contactInfo{
+  display: flex;
+  flex-direction: row;
+}
+.form1{
+  width: 50%;
+}
+.ContactInfo-container{
+  width: 50%;
+}
+
+.phone {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: normal;
+  font-size: 13pt;
+  color: black;
+} 
+.facebook {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: normal;
+  font-size: 13pt;
+  color: black;
+}
+.address {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: normal;
+  font-size: 13pt;
+  color: black;
+}
+h2 {
+  color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 22pt;
+}
+.map-location{
+  padding-top: 10px;
+}
+.Copyright{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  Size: 2pt; 
+  color: white;
+}
+/* SLIDER */
+.carousel-indicators li{
+  background-color: black;
+}
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;  }
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+.card {
+border: none;
+}
+.red {
+color: rgb(48, 44, 44);
+}
+
+/* Main Page End*/
+
+/* PRODUCTS */
+
 .Shoes, .Clothes, .Equipment{
   width: 90%;
   margin: 0 auto 0 auto;
@@ -39,21 +142,38 @@
   align-content: stretch;
   height: 100%;
 }
-/* we just need to change the width to 45% so it could be responseve */
+.nav-link {
+  color:grey;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 13pt;
+}
+.card-img-top {
+  border: 1px transparent;
+  border-radius: 25px;
+}
+.card-title.h5{
+  color: #FF4500;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 20pt;
+}
+.card-text{
+  color: grey;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 10pt;
+  }
+.list-group-item {
+  color: rgb(48, 44, 44);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 15pt;
+}
+
 .Card1{
   margin: 0 auto 0 auto;
   width: 33%; 
   padding: 10px 10px 10px 10px;
-}
-.homeImage{
-  height: 80px;
-  width: 80px;
-}
-.Card1.shoes.Title{
-  color: #FF4500;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-weight: bold;
-  font-size: 18pt;
 }
 
 /* we just need to change the width to 50% so it could be responseve */
@@ -67,42 +187,67 @@
 .slick-arrow{
   display : visible;
   color: black;
+} 
+
+/* AdminMenu */
+
+li a {
+text-decoration: none;
+color: #FF4500;
 }
-
-/* below are the two sections of the contact info */
-/* .contactInformation {
-  width: 50%;
-  padding: 40px;
-} */
-
-/* .map-location {
-  width: 50%
-} */
-/* .iframe {
-  padding: 50px;
-} */
-/* below is the container of the two sections of the contact info*/
-/* .ContactInfo-container {
+.Zoubala {
   display: flex;
-  background: lightgrey;
-} */
-.Header {
-  background-color:rgb(48, 44, 44);
-  width: 100%;
-
-  }
- 
-  .carousel-indicators li{
-    background-color: black;
-  }
-  .carousel-control-next-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;  }
-  .carousel-control-prev-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
-  }
-.card {
-  border: none;
+  flex-direction: row;
+  width: 40px;
+  margin: auto;
+  justify-content: space-between;
 }
-.red {
-  color: rgb(48, 44, 44);
+
+.create {
+  width:75%; 
+  margin:auto;
+}
+
+.create-h2{
+  color:#FF4500;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight : bold; 
+  font-size: 20pt;
+}
+
+.linkk {
+  text-decoration:none;
+  color:white;
+  padding-left:10px;
+}
+
+.EditForm{
+  width:60%;
+  margin:0 auto 0 auto;
+}
+
+.FormLink{
+  text-decoration:none;
+  color:white;
+}
+
+.FormContainer{
+  width:50%;
+}
+
+.Formh2{
+  color:white;
+  font-style:bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 22pt;
+}
+
+.FormForm{
+  padding-left:10px;
+  padding-bottom:10px;
+}
+
+Form.Label{
+  color: white;
 }

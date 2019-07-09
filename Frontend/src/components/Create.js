@@ -53,10 +53,9 @@ componentDidMount(){
     
     render() {
         return (
-            <div style={{width:"75%", margin:"auto"}}>
+            <div className="create">
                     <Form>
-                    <h2 style={{color:'#FF4500',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
-                    fontWeight: "bold", fontSize: "20pt"}}>ADD ITEM</h2><br></br>
+                    <h2 className="create-h2">ADD ITEM</h2><br></br>
                     <Form.Group controlId="exampleForm.ControlSelect1">
                                         <Form.Label>Category</Form.Label>
                                         <Form.Control as="select" name="category" value = {this.state.category} onChange={this.handleChange}  >
@@ -115,7 +114,7 @@ componentDidMount(){
                                   
                                    </Link>
                                  
-                                    <Link to ={this.props.location.state.path} style={{textDecoration:'none',color:'white',paddingLeft:"10px"}} >
+                                    <Link className="linkk" to ={this.props.location.state.path} >
                                     <Button variant="primary" type="cancel" >
                                         Cancel
                                     </Button></Link>

@@ -45,20 +45,17 @@ class ClothesAdmin extends Component {
       <div>
         <div className="Clothes-type">
           <Nav.Item>
-            <Nav.Link name="men" onClick={this.componentDidMount} style={{color:'grey',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
-            fontWeight: "bold", fontSize: "13pt"}}>
+            <Nav.Link name="men" onClick={this.componentDidMount}>
               MEN
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link name="women" onClick={this.componentDidMount} style={{color:'grey',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
-            fontWeight: "bold", fontSize: "13pt"}}>
+            <Nav.Link name="women" onClick={this.componentDidMount}>
               WOMEN
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link name="kids" onClick={this.componentDidMount} style={{color:'grey',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
-            fontWeight: "bold", fontSize: "13pt"}}>
+            <Nav.Link name="kids" onClick={this.componentDidMount}>
               KIDS
             </Nav.Link>
           </Nav.Item>
@@ -68,16 +65,8 @@ class ClothesAdmin extends Component {
             <div className="Card1">
               {" "}
               <Card>
-                <Card.Img style={{border:'1px transparent',borderRadius:'25px'}} variant="top" src={`http://localhost:3001/${clothes.Picture}`} />
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    width: "40px",
-                    margin: "auto",
-                    justifyContent: "space-between"
-                  }}
-                >
+                <Card.Img variant="top" src={`http://localhost:3001/${clothes.Picture}`} />
+                <div className="Zoubala">
                   <div>
                     <Link>
                     <i
@@ -100,12 +89,10 @@ class ClothesAdmin extends Component {
                   </div>
                 </div>
                 <Card.Body>
-                  <Card.Title style={{color:'#FF4500',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
-                  fontWeight: "bold", fontSize: "20pt"}}>{clothes.Title}</Card.Title>
-                  <Card.Text style={{color:'grey',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif", fontSize: "10pt"}}>
+                  <Card.Title>{clothes.Title}</Card.Title>
+                  <Card.Text>
                   {clothes.Description}</Card.Text>
-                  <ListGroup className="list-group-flush" style={{color:'rgb(48, 44, 44)',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
-                  fontWeight: "bold", fontSize: "15pt"}}>
+                  <ListGroup className="list-group-flush">
                     <ListGroupItem>{"$" + clothes.Price}</ListGroupItem>
                   </ListGroup>
                 </Card.Body>

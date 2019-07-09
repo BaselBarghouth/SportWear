@@ -52,15 +52,8 @@ this.setState(this.state.equipment.splice(index,1))
             <div>
             <div className="Equipment">
             {this.state.equipment.map((equipment,index)=><div className="Card1"> <Card >
-                    <Card.Img style={{border:'1px transparent',borderRadius:'25px'}} variant="top" src={`http://localhost:3001/${equipment.Picture}`}/><div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    width: "40px",
-                    margin: "auto",
-                    justifyContent: "space-between"
-                  }}
-                >
+                    <Card.Img variant="top" src={`http://localhost:3001/${equipment.Picture}`}/>
+                    <div className="Zoubala">
                   <div>
                       <Link>
                     <i
@@ -84,15 +77,13 @@ this.setState(this.state.equipment.splice(index,1))
                   
                 </div>
                     <Card.Body>
-                        <Card.Title style={{color:'#FF4500',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
-                        fontWeight: "bold", fontSize: "20pt"}}>
+                        <Card.Title>
                         {equipment.Title}
                         </Card.Title>
-                        <Card.Text style={{color:'grey',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif", fontSize: "10pt"}}>
+                        <Card.Text>
                         {equipment.Description}
                         </Card.Text>
-                        <ListGroup className="list-group-flush" className="list-group-flush" style={{color:'rgb(48, 44, 44)',fontFamily: "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
-                        fontWeight: "bold", fontSize: "15pt"}}>
+                        <ListGroup className="list-group-flush" className="list-group-flush">
                             <ListGroupItem>{'$'+equipment.Price}</ListGroupItem>
                         </ListGroup>
                     </Card.Body>

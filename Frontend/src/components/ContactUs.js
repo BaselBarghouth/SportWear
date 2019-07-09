@@ -7,7 +7,7 @@ class ContactUs extends Component {
   }
   render() {
       return (
-        <div id="contact" style={{backgroundColor:'#FF4500'}} >
+        <div id="contact">
               <ContactInfo />
              
         </div>

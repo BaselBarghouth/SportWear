@@ -14,6 +14,7 @@ class AdminMenu extends Component {
     render() {
         return (
             <div>
+            <div className="background3">
                 <Header />
             <div>
 
@@ -38,6 +39,7 @@ class AdminMenu extends Component {
                           }} >Add item</Link></Nav.Link>
                     </Nav.Item>
                 </Nav>
+            </div>
             </div>
             </div>
         )

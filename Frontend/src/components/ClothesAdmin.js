@@ -43,6 +43,7 @@ class ClothesAdmin extends Component {
   render() {
     return (
       <div>
+      <div className="background3">
         <div className="Clothes-type">
           <Nav.Item>
             <Nav.Link name="men" onClick={this.componentDidMount}>
@@ -102,7 +103,7 @@ class ClothesAdmin extends Component {
 
          
         </div>
-    
+        </div>
       </div>
     );
   }

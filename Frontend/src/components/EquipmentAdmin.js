@@ -50,6 +50,7 @@ this.setState(this.state.equipment.splice(index,1))
     render() {
         return (
             <div>
+            <div className="background3">
             <div className="Equipment">
             {this.state.equipment.map((equipment,index)=><div className="Card1"> <Card >
                     <Card.Img variant="top" src={`http://localhost:3001/${equipment.Picture}`}/>
@@ -89,6 +90,7 @@ this.setState(this.state.equipment.splice(index,1))
                     </Card.Body>
                 </Card></div>)}
                 
+            </div>
             </div>
             </div>
         )

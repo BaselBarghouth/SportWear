@@ -12,10 +12,16 @@ class HomePage extends React.Component{
 render(){
   return (
     <div> 
+    <div className="background">
     <Header />
     <Slider1 />
+    </div>
+    <div className="background1">
     <About />
+    </div>
+    <div className="background">
     <ContactUs />
+    </div>
     </div>
   );
 }

@@ -17,9 +17,9 @@ class Header extends React.Component {
   render() {
     return (
       <div className="Header">
-        <Navbar expand="lg" className="NavBar navbar-dark bg-dark" 
+        <Navbar expand="lg" className="NavBar" 
         >
-        <div classname="Menu" >
+        <div className="Menu" >
           <div>
           <Link to="/">
               <Image src={sport} className="homeImage"/>

@@ -11,12 +11,14 @@ class Clothes extends Component {
         this.state = {
             clothes:[]
         };
-        this.componentDidMount = this.componentDidMount.bind(this)
       }
+componentDidMount(){
+    this.getClothes("kids");
+}
 
-async componentDidMount(e){
+getClothes = async (e) => {
     try{
-        const respons = await fetch(`/products/clothes/${e.target.name}`)
+        const respons = await fetch(`/products/clothes/${e}`)
         const clothes = await respons.json();
         this.setState({clothes:clothes})
         console.log(clothes)
@@ -24,23 +26,23 @@ async componentDidMount(e){
     catch(err){
         console.log(err)
     }
-  
 }
 
 
     render() {
         return (
             <div>
+            <div className="background">
                 <Header />
                 <div className="Clothes-type">
                             <Nav.Item>
-                                <Nav.Link name="men" onClick={this.componentDidMount}>MEN</Nav.Link>
+                                <Nav.Link name="men" onClick={() => this.getClothes("men")}>MEN</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link name="women" onClick={this.componentDidMount}>WOMEN</Nav.Link>
+                                <Nav.Link name="women" onClick={() => this.getClothes("women")}>WOMEN</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link name="kids" onClick={this.componentDidMount}>KIDS</Nav.Link>
+                                <Nav.Link name="kids" onClick={() => this.getClothes("kids")}>KIDS</Nav.Link>
                             </Nav.Item>
                 </div>
             <div className="Clothes">
@@ -59,6 +61,7 @@ async componentDidMount(e){
                     </Card.Body>
                 </Card></div>)}
                 
+            </div>
             </div>
             </div>
         )

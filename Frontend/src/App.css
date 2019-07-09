@@ -8,19 +8,23 @@
 
 /* HEADER */
 .Header {
-  background-color:rgb(48, 44, 44);
-  width: 100%;
+  background-color: transparent;
+  height: 100px;
   }
 
 .Menu {
-  position: right;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+
+.nav-link{
+  color: white;
+}
+
 .about {
   text-decoration: none;
-  color:lightgrey;
+  color:white;
   }
   .shoes {
     color:black;
@@ -32,7 +36,15 @@
     color:black;
   }
   .contactus{
-  color: lightgrey;
+  color: white;
+  }
+
+  .dropdown-toggle {
+    color: white !important;
+  }
+
+  .dropdown-menu{
+    background: rgba(255, 255, 255,0.65) !important;
   }
 
   /* ABOUT */
@@ -44,12 +56,22 @@
 }
 .aboutus{
   width: 33%;
+  background: rgba(233, 233, 233, 0.5);
+  border-radius: 15%;
+  
+  
 }
 .mission{
   width: 33%;
+  background: rgba(233, 233, 233, 0.5);
+  border-radius: 15%;
+  margin-left: 10px;
 }
 .vision{
   width: 33%;
+  background: rgba(233, 233, 233, 0.5);
+  border-radius: 15%;
+  margin-left: 10px;
 }
 .about-missin-vision h1{
   color: #FF4500;
@@ -58,17 +80,17 @@
   font-size: 22pt;
   }
   .about-missin-vision p{
-    color: rgb(48, 44, 44);
+    color:  rgb(48, 44, 44);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: normal;
-  font-size: 10pt;
+  /* font-size: 13pt; */
   text-align: justify;
-  padding-left: 20px;
+  padding: 20px;
     }
 
 /* CONTACTUS */
 #contact{
-  background-color: #FF4500;
+  background-color: transparent;
 }
 .contactInfo{
   display: flex;
@@ -80,24 +102,27 @@
 .ContactInfo-container{
   width: 50%;
 }
-
+a:hover{
+  text-decoration: none;
+  color: #FF4500;
+}
 .phone {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: normal;
-  font-size: 13pt;
-  color: black;
+  text-decoration: none;
+  color: white;
 } 
 .facebook {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: normal;
-  font-size: 13pt;
-  color: black;
+  text-decoration: none;
+  color: white;
 }
 .address {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: normal;
-  font-size: 13pt;
-  color: black;
+  text-decoration: none;
+  color: white;
 }
 h2 {
   color: white;
@@ -111,7 +136,7 @@ h2 {
 .Copyright{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
-  Size: 2pt; 
+  Size: 3pt; 
   color: white;
 }
 /* SLIDER */
@@ -184,10 +209,7 @@ color: rgb(48, 44, 44);
   margin: 20px auto 0 auto
 }
 
-.slick-arrow{
-  display : visible;
-  color: black;
-} 
+
 
 /* AdminMenu */
 
@@ -207,7 +229,10 @@ color: #FF4500;
   width:75%; 
   margin:auto;
 }
-
+.slick-arrow{
+  display : visible;
+  color: white;
+} 
 .create-h2{
   color:#FF4500;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -244,10 +269,41 @@ color: #FF4500;
 }
 
 .FormForm{
-  padding-left:10px;
+  padding-left:30px;
   padding-bottom:10px;
 }
 
 Form.Label{
   color: white;
+}
+
+/*background images for home page and product page*/
+
+.background {
+  
+    padding: 0 0 69px 0;
+    box-sizing: border-box;
+    width: 100%;
+    display: block;
+    position: relative;
+    text-align: center;
+    background: url(./components/Images/tirza-van-dijk-TEYrLTKKMSg-unsplash.jpg) no-repeat fixed center center;
+    background-size: auto;
+    background-size: cover;
+    
+
+}
+
+.background1 {
+  
+  padding: 0 0 69px 0;
+  box-sizing: border-box;
+  width: 100%;
+  display: block;
+  position: relative;
+  text-align: center;
+  background: url(./components/Images/yaron-richman-uZmr0wwfHNA-unsplash.jpg) no-repeat fixed center center;
+  background-size: auto;
+  background-size: cover;
+ 
 }

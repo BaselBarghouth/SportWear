@@ -25,6 +25,7 @@ async componentDidMount(){
     render() {
         return (
             <div>
+            <div className="background">
              <Header />
                 <div className="Equipment">
                {this.state.equipment.map(m=><div className="Card1"> <Card >
@@ -42,7 +43,7 @@ async componentDidMount(){
                     </Card.Body>
                 </Card></div>)}
                 </div>
-           
+                </div>
             </div>
         )
 }

@@ -15,33 +15,36 @@ class Shoes extends Component {
       
       }
 
- getShoes= async(e)=>
-{
+ 
+componentDidMount(){
+    this.getShoes("kids");
+}
+
+getShoes = async (e) => {
     try{
-        const respons = await fetch(`/products/shoes/${e.target.name}`)
+        const respons = await fetch(`/products/shoes/${e}`)
         const shoes = await respons.json();
         this.setState({shoes:shoes})
-        console.log(shoes)
     }
     catch(err){
         console.log(err)
     }
 }
 
-
     render() {
         return (
             <div>
+            <div className="background">
               <Header />
                 <div className="Shoes-type">
                             <Nav.Item>
-                                <Nav.Link name="MEN" onClick={this.getShoes}>MEN</Nav.Link>
+                                <Nav.Link name="MEN" onClick={()=>this.getShoes("men")}>MEN</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link name="WOMEN" onClick={this.getShoes}>WOMEN</Nav.Link>
+                                <Nav.Link name="WOMEN" onClick={()=>this.getShoes("women")}>WOMEN</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link name="KIDS" onClick={this.getShoes}>KIDS</Nav.Link>
+                                <Nav.Link name="KIDS" onClick={()=>this.getShoes("kids")}>KIDS</Nav.Link>
                             </Nav.Item>
                 </div>
             <div className="Shoes">
@@ -60,6 +63,7 @@ class Shoes extends Component {
                     </Card.Body>
                 </Card></div>)}
                 
+            </div>
             </div>
             </div>
         )

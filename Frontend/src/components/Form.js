@@ -42,6 +42,12 @@ async handleSubmit (event){
               <Form.Control placeholder="Last name" name="lastname"  onChange={this.handleChange}/>
               <Form.Label name="email" >Email address</Form.Label>
               <Form.Control type="email" placeholder="Enter email" name="email" onChange={this.handleChange} />
+              {['radio'].map(type => (
+                <div key={`inline-${type}`} className="mb-3" style={{paddingTop:"10px"}}>
+                  <Form.Check inline label="Suggestion" type={type} id={`inline-${type}-1`} style={{color:"white"}}/>
+                  <Form.Check inline label="Complaint" type={type} id={`inline-${type}-2`} style={{color:"white"}}/>
+                </div>
+              ))}
               <Form.Label name="message" >Message</Form.Label>
               <Form.Control as="textarea" rows="3" name="message" onChange={this.handleChange} />
               <br/><Button variant="light" onClick={this.handleSubmit} >Submit</Button>

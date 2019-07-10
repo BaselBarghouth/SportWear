@@ -150,6 +150,8 @@ h2 {
 .carousel-control-prev-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
 }
+
+.Carousel{padding:10px 200px;}
 .card {
 border: none;
 border-top-left-radius : 10%;
@@ -339,4 +341,93 @@ a{
 }
 .fab{
   color:  #FF4500;
+}
+#slider{
+  width: 60%;
+  height: 400px;
+}
+.navbar-toggler-icon{
+  color: #FF4500;
+}
+@media screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+
+    
+  }
+
+
+.about-missin-vision{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 50px 20px 50px 20px;
+}
+
+.contactInfo{
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutus{
+  width: 100%;
+  background: rgba(233, 233, 233, 0.5);
+  border-radius: 15%;
+  margin-bottom: 15px;
+  
+}
+.mission{
+  width: 100%;
+  background: rgba(233, 233, 233, 0.5);
+  border-radius: 15%;
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+.vision{
+  width: 100%;
+  background: rgba(233, 233, 233, 0.5);
+  border-radius: 15%;
+  margin-left: 10px;
+}
+.ContactInfo-container{
+  width: 100%;
+  padding-top: 10px;
+}
+.FormContainer{
+  width:100%;
+}
+.FormForm{
+  padding: 0 5px;
+  margin: 0;
+}
+iframe{
+  padding:0 5px;
+  width:100%;
+  
+}
+.Shoes-type, .Clothes-type{
+  display: flex;
+  text-align: center;
+  width: 50%;
+  margin: 20px auto 0 auto
+}
+
+.Card1{
+  margin: 0 auto 0 auto;
+  width: 100%; 
+  padding: 20px 20px;
+}
+.Header{
+  height: 200px;
+}
+
+#slider{
+  width: 100%;
+  height: 200px;
+}
+
+.Carousel{
+  padding:0 70px;
+}
 }

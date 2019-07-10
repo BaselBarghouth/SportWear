@@ -55,14 +55,16 @@ catch(err){
 
     return (
       <Carousel
+      className="Carousel"
         activeIndex={index}
         direction={direction}
         onSelect={this.handleSelect}
-       style={{padding:"10px 200px"}}
+       
       >
         <Carousel.Item>
           <img
             className="d-block w-100"
+            id="slider"
             src={this.state.shoes}
             alt="First slide"
             style={{width:'60%',maxHeight:'400px'}}
@@ -72,6 +74,7 @@ catch(err){
         <Carousel.Item>
           <img
             className="d-block w-100"
+            id="slider"
             src={this.state.clothes}
             alt="Third slide"
             style={{width:'60%',maxHeight:'400px'}}
@@ -81,6 +84,7 @@ catch(err){
         <Carousel.Item>
           <img
             className="d-block w-100"
+            id="slider"
             src={this.state.equipment}
             alt="Third slide"
             style={{width:'60%',maxHeight:'400px'}}

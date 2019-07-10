@@ -56,7 +56,7 @@ class EditForm extends Component {
     return (
       <div className="EditForm" >
         <Form>
-          <h2>Edit Item</h2>
+          <h2 className="create-h2">Edit Item</h2>
           <br />
           <Form.Group controlId="exampleForm.ControlSelect1">
             <Form.Label>Category</Form.Label>

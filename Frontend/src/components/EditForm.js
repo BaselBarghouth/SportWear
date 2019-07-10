@@ -83,7 +83,7 @@ class EditForm extends Component {
               <option />
               <option value="M">Male</option>
               <option value="F">Female</option>
-              <option value="E">Equipment</option>
+              <option value="K">Kids</option>
             </Form.Control>
           </Form.Group>
           <Form.Group controlId="formBasicEmail">

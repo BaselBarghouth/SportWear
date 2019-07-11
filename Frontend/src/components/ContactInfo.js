@@ -11,7 +11,7 @@ class ContactInfo extends Component {
 
                 <div className= "ContactInfo-container" >
                     <div className= "contactInformation">
-                    <h2>Contact</h2>
+                    <h2 className="ContactInfoh2" >Contact</h2>
                     <i class="fas fa-phone"></i>
                     
                     <a className= "phone" href="tel:+9611123456"> Call: 961 1 123456</a>

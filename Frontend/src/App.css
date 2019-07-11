@@ -80,6 +80,7 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
   font-size: 22pt;
+  padding-top: 10px;
   }
   .about-missin-vision p{
     color:  rgb(48, 44, 44);
@@ -103,6 +104,7 @@
 }
 .ContactInfo-container{
   width: 50%;
+  padding-top: 20px;
 }
 a:hover{
   text-decoration: none;
@@ -180,12 +182,12 @@ color: rgb(48, 44, 44);
 .card-img-top {
   border: 1px transparent;
   border-radius: 10%;
+  max-height: 283.75px;
 }
 .card-title.h5{
   color: #FF4500;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
-  font-size: 20pt;
 }
 .card-text{
   color: grey;
@@ -202,8 +204,21 @@ color: rgb(48, 44, 44);
 .Card1{
   margin: 0 auto 0 auto;
   width: 25%; 
+  height: 542px; 
   padding: 10px 10px 10px 10px;
 }
+
+.card-body{
+  height: 240px;
+}
+.list-group-item{
+  height: 100%;
+}
+
+.card-title{
+  height: 64px;
+}
+
 
 /* we just need to change the width to 50% so it could be responseve */
 .Shoes-type, .Clothes-type{
@@ -270,6 +285,7 @@ color: #FF4500;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
   font-size: 22pt;
+  padding-top: 20px;
 }
 
 .FormForm{
@@ -349,6 +365,8 @@ a{
 .navbar-toggler-icon{
   color: #FF4500;
 }
+
+
 @media screen and (max-width: 768px) {
   /* For mobile phones: */
   [class*="col-"] {
@@ -369,7 +387,9 @@ a{
   display: flex;
   flex-direction: column;
 }
-
+.contactInformation{
+  padding-top: 20px;
+}
 .aboutus{
   width: 100%;
   background: rgba(233, 233, 233, 0.5);
@@ -377,6 +397,7 @@ a{
   margin-bottom: 15px;
   
 }
+
 .mission{
   width: 100%;
   background: rgba(233, 233, 233, 0.5);
@@ -419,7 +440,7 @@ iframe{
   padding: 20px 20px;
 }
 .Header{
-  height: 200px;
+  height: 150px;
 }
 
 #slider{

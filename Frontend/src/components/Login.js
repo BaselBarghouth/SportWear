@@ -34,8 +34,9 @@ class Login extends Component {
     render() {
         return (
             <div>
+                <div className="background">
                 <Header />
-                <Form>
+                <Form className="login">
                     <h2>Login</h2><br></br>
                     <Form.Group controlId="formBasicEmail">
                                 <Form.Label>
@@ -56,6 +57,7 @@ class Login extends Component {
                                         Submit 
                                     </Button></Link>
                 </Form>
+            </div>
             </div>
         )
 }

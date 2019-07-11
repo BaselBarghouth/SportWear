@@ -365,7 +365,10 @@ a{
 .navbar-toggler-icon{
   color: #FF4500;
 }
-
+ /*login*/
+ .login{
+  padding: 0 20%;
+ }
 
 @media screen and (max-width: 768px) {
   /* For mobile phones: */

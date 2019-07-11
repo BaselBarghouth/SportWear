@@ -44,11 +44,12 @@ addItem = async(event)=>{
        {
            console.log(err)
        }
+       window.location.reload();
     }
        
-componentDidMount(){
-    console.log(this.props)
-}
+// componentDidMount(){
+//     console.log(this.props)
+// }
 
     
     render() {
@@ -108,7 +109,7 @@ componentDidMount(){
                     </Form.Group>
                     <Link to ={this.props.location.state.path} style={{textDecoration:'none',color:'white',paddingLeft:"10px"}} >
                                    
-                                    <Button variant="primary" type="Submit"onClick={this.addItem} >
+                                    <Button variant="primary" type="Submit" onClick={this.addItem} >
                                         Add
                                     </Button>
                                   

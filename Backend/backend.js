@@ -40,7 +40,7 @@ const transport = {
  const transporter = nodemailer.createTransport(transport);
  const option = {
      from : `${req.body.name} : <${req.body.email}>`,
-     to :"baselbarghout0@gmail.com",
+     to :"omar@codi.tech",
      subject :"Hello Mr. Omar",
      html : `<h3>Message Contact</h3>
                 <ul>

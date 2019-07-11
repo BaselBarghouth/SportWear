@@ -19,7 +19,7 @@ handleChange = (event)=>{
     }
 
 async handleSubmit (event){
-      event.preventDefault();
+      // event.preventDefault();
       const {name, lastname, email, message} = this.state
      
       try{
@@ -50,7 +50,7 @@ async handleSubmit (event){
               ))}
               <Form.Label name="message" >Message</Form.Label>
               <Form.Control as="textarea" rows="3" name="message" onChange={this.handleChange} />
-              <br/><Button variant="light" onClick={this.handleSubmit} >Submit</Button>
+              <br/><Button variant="light" onClick={this.handleSubmit} type="submit">Submit</Button>
         </Form>
         </div>
       )

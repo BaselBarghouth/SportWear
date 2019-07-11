@@ -31,7 +31,7 @@ render(){
       <Route path="/products/shoes" component={Shoes} />
       <Route path="/products/clothes" component={Clothes} />
       <Route path="/products/equipment" component={Equipment} />
-      {/* <Route path="/login" component={Login} /> */}
+      <Route path="/login" component={Login} />
       <Route path="/adminmenu" component={AdminMenu} />
       <Route path="/adminpage/edit" component={EditForm} />
       <Route path="/adminmenu/shoes" component={ShoesAdmin} />

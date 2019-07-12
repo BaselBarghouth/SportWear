@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node backend.js",
+    "start": "concurrently --kill-others \"npm run Backend\" \"npm run Frontend\"",
     "server": "nodemon backend.js",
     "Frontend": "npm run start --prefix Frontend",
-    "Backend": "npm run server --prefix Backend",
-    "start": "concurrently --kill-others \"npm run Backend\" \"npm run Frontend\""
+    "Backend": "npm run server --prefix Backend"
   },
   "author": "",
   "license": "ISC",

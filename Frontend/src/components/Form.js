@@ -30,7 +30,11 @@ async handleSubmit (event){
   })}
       catch(err){
     console.log(err)
-  }}
+  }
+this.setState({
+  name:'',lastname:'',email:'',message:''
+})
+}
   render() {
       return (
         <div className="FormContainer">

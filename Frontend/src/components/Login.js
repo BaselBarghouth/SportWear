@@ -10,8 +10,7 @@ class Login extends Component {
         super();
         this.state = {
             user:'',
-            pass:'',
-            p:""
+            pass:''
         };
       }
 
@@ -22,13 +21,13 @@ class Login extends Component {
 
       handleSubmit=(event)=>{
           if(this.state.user === 'tarek' && this.state.pass === 'tarek' ){
-                    
-                   this.setState({p: '/adminpage'}, () => {
-                       console.log(this.state.p)
-                   })
+            alert('Welcome Mr. Tarek')
+            this.props.history.push('/adminmenu')
           }
           else{
-                this.setState({p: '/login'})
+         
+            alert('Sorry you are not the admin fuck your self')
+            window.location.reload();
           }
       }
     render() {
@@ -52,10 +51,10 @@ class Login extends Component {
                                     </Form.Label>
                                     <Form.Control type="password" placeholder="Password" name="pass" onChange={this.handleChange} />
                     </Form.Group>
-                    <Link to={this.state.p} >
+                    
                                     <Button variant="primary" onClick={this.handleSubmit} >
                                         Submit 
-                                    </Button></Link>
+                                    </Button>
                 </Form>
             </div>
             </div>
